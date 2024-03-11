@@ -1,10 +1,12 @@
 import React from 'react'
-import Nav from bootstrap;
+// import Nav from bootstrap;
 
 
 function Header() {
     return (
-        <Nav>Header</Nav>
+        <div>
+            <p>This is where we can add our Nav bar</p>
+        </div>
     )
 }
 
