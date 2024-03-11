@@ -1,8 +1,10 @@
 import React from 'react'
+import Nav from bootstrap;
+
 
 function Header() {
     return (
-        <div>Header</div>
+        <Nav>Header</Nav>
     )
 }
 
