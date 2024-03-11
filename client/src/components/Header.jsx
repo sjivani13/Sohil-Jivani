@@ -4,7 +4,10 @@ import Nav from bootstrap;
 
 function Header() {
     return (
-        <Nav>Header</Nav>
+        <div>
+            Header
+            <p>This is where we can add our Nav bar</p>
+        </div>
     )
 }
 
