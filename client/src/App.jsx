@@ -1,13 +1,6 @@
 import Header from "./component/Header/Header"
 
 function App() {
-<<<<<<< HEAD
-
-  return (
-    <>
-      <Header />
-      <Homepage />
-=======
   // const [count, setCount] = useState(0)
 
   return (
@@ -32,7 +25,6 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p> */}
->>>>>>> 94835b43f6c7dfae2ea040fe074b96b0480d6af7
     </>
   )
 }
