@@ -7,10 +7,6 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import "./Header.css";
-<<<<<<< HEAD
-=======
-
->>>>>>> 29f8f961797e8939eef91310391dc65a8fc0fbf7
 function Header() {
     return (
         <Navbar expand="lg" className="header">

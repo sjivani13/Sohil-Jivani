@@ -10,16 +10,6 @@ function App() {
 
   return (
     <>
-<<<<<<< HEAD
-      <Header />
-      <LandingPage />
-      <Row>
-        <Routes>
-          <Route exact path="/home" element={<LandingPage />}>  </Route>
-          <Route exact path="/login" element={<LoginPage />}></Route>
-        </Routes>
-      </Row>
-=======
       {/* <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -40,7 +30,6 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p> */}
->>>>>>> e4acb761f03ac6b2bac605867e8170f9690b54bf
     </>
   )
 }

@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-import "./LandingPage.css";
-=======
 import React, { useState, useEffect } from 'react'
 import "./LandingPage.css"
 import { Container, Card, Form, Button, Figure, Col, Row } from "react-bootstrap";
@@ -103,6 +100,5 @@ function LandingPage() {
     );
 }
 
->>>>>>> 29f8f961797e8939eef91310391dc65a8fc0fbf7
 
 export default LandingPage;
