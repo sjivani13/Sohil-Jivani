@@ -5,3 +5,29 @@
   text-align: center;
   background-color: #292a2c;
 }
+
+/* HEADER */
+.header {
+  background-color: #3f4e34;
+}
+
+#title {
+  color: #b27581;
+  font-size: 40px;
+  font-family: "Rampart One", system-ui;
+  font-weight: 400;
+
+}
+
+#login,
+#home {
+  color: #b27581;
+  font-size: 20px;
+  font-family: "Rampart One", system-ui;
+
+}
+
+#btn {
+  color: burlywood;
+  background-color: #4c6c3c;
+}
