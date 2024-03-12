@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 import Homepage from './components/Homepage'
 import Header from './components/Header'
+=======
+import Homepage from './pages/Homepage'
+
+>>>>>>> 2a732d01635f6fa27c5766df7aa07e49ac292137
 import './App.css'
+import Header from './components/Header'
 
 function App() {
-  // const [count, setCount] = useState(0)
 
   return (
     <>
