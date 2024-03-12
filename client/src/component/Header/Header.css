@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .header {
     background-color: #3f4e34;
 }
@@ -23,3 +24,31 @@
 }
 
 export 
+=======
+ .header {
+     background-color: #3f4e34;
+ }
+
+ #title {
+     color: #b27581;
+     font-size: 40px;
+     font-family: "Rampart One", system-ui;
+     font-weight: 400;
+ }
+
+ img {
+     border-radius: 50%;
+ }
+
+ #login,
+ #home {
+     color: #b27581;
+     font-size: 20px;
+     font-family: "Rampart One", system-ui;
+ }
+
+ #btn {
+     color: burlywood;
+     background-color: #4c6c3c;
+ }
+>>>>>>> 29f8f961797e8939eef91310391dc65a8fc0fbf7
