@@ -8,6 +8,12 @@ import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import "./Header.css";
 import { Link } from 'react-router-dom'
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 5c390de1731980ed96f5f46d45a94d5c325770e5
 function Header() {
     return (
         <Navbar expand="lg" className="header">
