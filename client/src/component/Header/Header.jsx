@@ -7,10 +7,10 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import "./Header.css";
-<<<<<<< HEAD
-import {Link} from 'react-router-dom'
-=======
->>>>>>> 5040f42822d3d7a23a1404644d7d2dd19f56aed6
+import { Link } from 'react-router-dom'
+
+
+
 function Header() {
     return (
         <Navbar expand="lg" className="header">
@@ -44,7 +44,7 @@ function Header() {
                     </Nav>
                     <Nav>
                         <Nav.Link id="home" as={Link} to="home">Home</Nav.Link>
-                        <Nav.Link id="login"as={Link} to="login">Log In</Nav.Link>
+                        <Nav.Link id="login" as={Link} to="login">Log In</Nav.Link>
                     </Nav>
 
                     {/* <Nav.Link href="#link">Link</Nav.Link> */}
