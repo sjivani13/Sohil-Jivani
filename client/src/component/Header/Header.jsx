@@ -7,7 +7,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import "./Header.css";
-
+import {Link} from 'react-router-dom'
 function Header() {
     return (
         <Navbar expand="lg" className="header">
@@ -40,8 +40,8 @@ function Header() {
                         </Form>
                     </Nav>
                     <Nav>
-                        <Nav.Link id="home" href="home">Home</Nav.Link>
-                        <Nav.Link id="login" href="login">Log In</Nav.Link>
+                        <Nav.Link id="home" as={Link} to="home">Home</Nav.Link>
+                        <Nav.Link id="login"as={Link} to="login">Log In</Nav.Link>
                     </Nav>
 
                     {/* <Nav.Link href="#link">Link</Nav.Link> */}
