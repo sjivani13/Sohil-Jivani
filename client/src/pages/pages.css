@@ -2,6 +2,7 @@ h2 {
     color: #b27581;
     font-size: 40px;
     font-family: "Rampart One", system-ui;
+    text-align: center;
 }
 
 label.form-label,
