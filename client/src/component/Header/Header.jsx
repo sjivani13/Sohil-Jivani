@@ -1,13 +1,8 @@
 import React from "react";
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import Form from 'react-bootstrap/Form'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Button from 'react-bootstrap/Button'
+import { Button, Col, Row, Form, Nav, Navbar, Container } from "react-bootstrap";
 import "./Header.css";
 import { Link } from 'react-router-dom'
+
 function Header() {
     return (
         <Navbar expand="lg" className="header">
