@@ -14,12 +14,11 @@ function LoginPage() {
                         style={{ width: "350px" }}
                     // onSubmit={handleSignup}
                     >
-                        <h2 id="head" className="mb-3">Share Your Recipe!</h2>
+                        <h2 id="head" className="mb-3">Join Our Food Journey!!</h2>
 
-                        <Form.Group>
+                        {/* <Form.Group>
                             <Button id="uploadBtn">Upload Food Image <input className="fa fa-upload" type="file" /></Button>
-                            {/* <input type="file" /> */}
-                        </Form.Group>
+                        </Form.Group> */}
                         <Form.Group controlId="username-register">
                             <Form.Label>Username</Form.Label>
                             <InputGroup>
@@ -82,12 +81,12 @@ function LoginPage() {
                                     variant="link"
                                 // onClick={() => navigate("/login")}
                                 >
-                                    Login
+                                    Sign-in
                                 </Button>
                             </Col>
-                            {/* <Button type="submit" disabled={data.isSubmitting}>
+                            <Button> Log-in{/*type="submit" disabled={data.isSubmitting}>
                                 {data.isSubmitting ? <LoadingSpinner /> : "Sign up"}
-                            </Button> */}
+                           */} </Button>
                         </Row>
                     </Form>
                 </Row>

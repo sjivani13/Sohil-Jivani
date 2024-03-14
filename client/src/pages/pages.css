@@ -18,3 +18,7 @@ div.col {
 form {
     background-color: #4d653db7;
 }
+
+button.btn.btn-primary {
+    background-color: #f47a92c6;
+}
