@@ -3,6 +3,7 @@ import { Container, Row, Form, InputGroup, Col, Button, Nav } from 'react-bootst
 import { Link } from 'react-router-dom';
 import "./pages.css"
 import { useNavigate } from 'react-router-dom';
+import { useProvideAuth } from '../hooks/useProvideAuth';
 
 const initialState = {
     username: "",
@@ -13,6 +14,7 @@ const initialState = {
 
 function LoginPage() {
     const [data, setData] = useState(initialState);
+    const auth = useProvideAuth();
 
     let navigate = useNavigate();
 
@@ -39,7 +41,7 @@ function LoginPage() {
         });
         try {
             const res = await auth.signin(data.username, data.password);
-            // setAuthToken(res.token);
+            setAuthToken(res.token);
             navigate("/dashboard");
         } catch (error) {
             setData({
@@ -93,7 +95,7 @@ function LoginPage() {
                                 New User?
 
                                 <Button>
-                                    <Nav.Link id="signup" as={Link} to="signup"> Sign-Up</Nav.Link>
+                                    <Nav.Link id="signup" as={Link} to="/signup"> Sign-Up</Nav.Link>
 
                                 </Button>
 

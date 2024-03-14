@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Container, Row, Form, InputGroup, Col, Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom';
 import "./pages.css"
+import { useProvideAuth } from '../hooks/useProvideAuth';
 
 
 const initialState = {
@@ -16,6 +17,7 @@ const initialState = {
 
 function SignupPage() {
     const [data, setData] = useState(initialState);
+    const auth = useProvideAuth();
 
     let navigate = useNavigate();
 
@@ -27,6 +29,7 @@ function SignupPage() {
     };
 
     const handleSignup = async (event) => {
+        console.log("hello")
         const form = event.currentTarget;
         event.preventDefault();
         event.stopPropagation();
@@ -45,7 +48,6 @@ function SignupPage() {
                 data.email,
                 data.password,
                 data.confirmPassword,
-                profileImage,
             );
             setData({
                 ...data,
@@ -53,7 +55,7 @@ function SignupPage() {
                 errorMessage: null,
             });
             setAuthToken(res.token);
-            navigate("/");
+            navigate("/dashboard");
         } catch (error) {
             setData({
                 ...data,
@@ -86,8 +88,8 @@ function SignupPage() {
                                     placeholder="Username"
                                     aria-describedby="inputGroupPrepend"
                                     required
-                                // value={data.username}
-                                // onChange={handleInputChange}
+                                    value={data.username}
+                                    onChange={handleInputChange}
                                 />
                             </InputGroup>
                         </Form.Group>
@@ -98,8 +100,8 @@ function SignupPage() {
                                 name="email"
                                 placeholder="Email"
                                 required
-                            // value={data.email}
-                            // onChange={handleInputChange}
+                                value={data.email}
+                                onChange={handleInputChange}
                             />
                         </Form.Group>
                         <Form.Group>
@@ -109,8 +111,8 @@ function SignupPage() {
                                 name="password"
                                 required
                                 id="inputPasswordRegister"
-                            // value={data.password}
-                            // onChange={handleInputChange}
+                                value={data.password}
+                                onChange={handleInputChange}
                             />
                         </Form.Group>
 
@@ -121,8 +123,8 @@ function SignupPage() {
                                 name="confirmPassword"
                                 id="confirm-password"
                                 required
-                            // value={data.confirmPassword}
-                            // onChange={handleInputChange}
+                                value={data.confirmPassword}
+                                onChange={handleInputChange}
                             />
                         </Form.Group>
 
@@ -135,7 +137,7 @@ function SignupPage() {
                             <Col>
                                 <br />
                             </Col>
-                            <Button> Sign Up{/*type="submit" disabled={data.isSubmitting}>
+                            <Button type="submit"> Sign Up{/* disabled={data.isSubmitting}>
                                 {data.isSubmitting ? <LoadingSpinner /> : "Sign up"}
                            */} </Button>
                         </Row>

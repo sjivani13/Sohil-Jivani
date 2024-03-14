@@ -2,12 +2,12 @@ import "dotenv/config";
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
-import { DB_URL } from './config/db.config';
-import { API_URL, PORT } from './config/app.config';
+import keys from './config/keys'
+import { port } from "./config/keys";
 import router from "./routes"
 
 
-mongoose.connect(DB_URL)
+mongoose.connect(keys.database.url)
     .then(() => console.log("[Database] Connection established."))
     .catch((err) => console.log("[Database] Connection failed: ", err));
 
@@ -17,6 +17,6 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(API_URL, router);
+app.use(keys.app.apiEndpoint, router);
 
-app.listen(PORT, () => console.log(`[Server] Listening for requests at http://localhost:${PORT}`))
+app.listen(port.web, () => console.log(`[Server] Listening for requests at http://localhost:${port.web}`))

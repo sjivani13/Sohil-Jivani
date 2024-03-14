@@ -1,5 +1,11 @@
-import { Router } from "express";
+import express from 'express'
+import authRouter from './auth'
 
-const router = Router();
+const router = express.Router();
+router.get('/', (req, res, next) => {
+    res.status(200).send('api endpoint')
+})
 
-export default router;
+router.use('/auth', authRouter)
+
+module.exports = router
