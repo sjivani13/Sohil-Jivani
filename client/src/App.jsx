@@ -1,12 +1,14 @@
 import Header from "./component/Header/Header"
 import LandingPage from "./component/LandingPage/LandingPage"
-// import LoginPage from "./pages/LoginPage"
-import React from "react"
-import { Route, Routes } from "react-router-dom"
+import Dashboard from "./pages/Dashboard"
 import LoginPage from "./pages/LoginPage"
-// import LoginPage from "./pages/LoginPage"
-// import { Navigate } from "react-router-dom"
-// import { Row } from "react-bootstrap"
+import SignupPage from "./pages/SignupPage"
+
+
+import React from "react"
+import { Navigate, Route, Routes } from "react-router-dom"
+
+
 
 function App() {
 
@@ -14,14 +16,13 @@ function App() {
     <>
       <Header />
       <Routes>
-        <Route exact path="/" />
+        <Route exact path="/" element={<LandingPage />} />
         <Route exact path="/home" element={<LandingPage />} />
         <Route exact path="/login" element={<LoginPage />} />
+        <Route exact path="/login/signup" element={<SignupPage />} />
+        <Route exact path="/dashboard" element={<Navigate to="/dashboard" />} />
 
       </Routes>
-      {/* <LandingPage /> */}
-      {/* <LoginPage exact path="/login" element={<Navigate to="/login" />} /> */}
-      {/* <LandingPage /> */}
     </>
   )
 }

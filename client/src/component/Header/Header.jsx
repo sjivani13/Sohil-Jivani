@@ -37,6 +37,7 @@ function Header() {
                     <Nav>
                         <Nav.Link id="home" as={Link} to="home">Home</Nav.Link>
                         <Nav.Link id="login" as={Link} to="login">Log In</Nav.Link>
+
                     </Nav>
 
                     {/* <Nav.Link href="#link">Link</Nav.Link> */}
