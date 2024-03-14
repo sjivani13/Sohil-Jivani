@@ -10,9 +10,9 @@ function Header() {
                 <Navbar.Brand id="title" href="#home">
                     <img
                         alt=""
-                        src="/spork-circle.png"
-                        width="60"
-                        height="65"
+                        src="/pinkFork.png"
+                        width="70"
+                        height="70"
                         className="d-inline-block align-top"
                     />{' '}
                     Trio Digital Dishes</Navbar.Brand>
