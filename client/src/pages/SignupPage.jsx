@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { Container, Row, Form, InputGroup, Col, Button } from 'react-bootstrap'
+import { Container, Row, Form, InputGroup, Col, Button, Nav } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom';
 import "./pages.css"
 import { useProvideAuth } from '../hooks/useProvideAuth';
+import { Link } from 'react-router-dom';
 
 
 const initialState = {
@@ -137,9 +138,23 @@ function SignupPage() {
                             <Col>
                                 <br />
                             </Col>
-                            <Button type="submit"> Sign Up{/* disabled={data.isSubmitting}>
+
+                            <Row className="mr-0">
+                                <Row className="mr-0">
+                                    <Col>
+                                        Already a user?
+
+                                        <Button>
+                                            <Nav.Link id="signup" as={Link} to="/login">Login</Nav.Link>
+
+                                        </Button>
+
+                                    </Col>
+                                    <Button> Sign-Up{/*type="submit" disabled={data.isSubmitting}>
                                 {data.isSubmitting ? <LoadingSpinner /> : "Sign up"}
                            */} </Button>
+                                </Row>
+                            </Row>
                         </Row>
                     </Form>
                 </Row>

@@ -100,9 +100,9 @@ function LoginPage() {
                                 </Button>
 
                             </Col>
-                            <Button> Login{/*type="submit" disabled={data.isSubmitting}>
-                                {data.isSubmitting ? <LoadingSpinner /> : "Sign up"}
-                           */} </Button>
+                            <Button type="submit"> Login
+
+                            </Button>
                         </Row>
                     </Form>
                 </Row>
