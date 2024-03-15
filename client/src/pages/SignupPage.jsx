@@ -3,7 +3,7 @@ import { Container, Row, Form, InputGroup, Col, Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom';
 import "./pages.css"
 import { useProvideAuth } from '../hooks/useProvideAuth';
-// import { setAuthToken } from '../utils/api.util';
+import { setAuthToken } from '../utils/api.util';
 
 
 const initialState = {
