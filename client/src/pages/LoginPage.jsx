@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import "./pages.css"
 import { useNavigate } from 'react-router-dom';
 import { useProvideAuth } from '../hooks/useProvideAuth';
+import { setAuthToken } from '../utils/api.util';
 
 const initialState = {
     username: "",
@@ -41,9 +42,10 @@ function LoginPage() {
         });
         try {
             const res = await auth.signin(data.username, data.password);
-            setAuthToken(res.token);
+            setAuthToken(res.data.token);
             navigate("/dashboard");
         } catch (error) {
+            console.log(error)
             setData({
                 ...data,
                 isSubmitting: false,
