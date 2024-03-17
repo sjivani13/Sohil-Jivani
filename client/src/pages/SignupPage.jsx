@@ -156,7 +156,7 @@ function SignupPage() {
                                         </Button>
 
                                     </Col>
-                                    <Button> Sign-Up{/*type="submit" disabled={data.isSubmitting}>
+                                    <Button type="submit"> Sign-Up{/* disabled={data.isSubmitting}>
                                 {data.isSubmitting ? <LoadingSpinner /> : "Sign up"}
                            */} </Button>
                                 </Row>
