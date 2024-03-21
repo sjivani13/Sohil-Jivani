@@ -12,7 +12,6 @@ const initialState = {
 };
 
 function LandingPage() {
-    const [user, setUser] = useState(initialState);
 
 
     return (

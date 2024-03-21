@@ -23,3 +23,11 @@ form {
 button.btn.btn-primary {
     background-color: #f47a92c6;
 }
+
+toast {
+    background: #f47a92c6;
+    color: #fff;
+    font-size: 20px;
+    width: 34vw;
+    padding: 30px 20px;
+}

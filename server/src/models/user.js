@@ -10,7 +10,6 @@ const userSchema = new mongoose.Schema({
     unique: true,
     required: true,
   },
-
   email: {
     type: String,
     required: true,
@@ -20,7 +19,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  
+  recipePost: [{
+    type: ObjectId,
+    ref: 'Post'
+  }],
   postLikes: [
     {
       type: ObjectId,
