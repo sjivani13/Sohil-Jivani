@@ -5,7 +5,7 @@ import "./pages.css"
 import { useProvideAuth } from '../hooks/useProvideAuth';
 import { Link } from 'react-router-dom';
 import { setAuthToken } from '../utils/api.util';
-
+import { toast } from 'react-toastify';
 
 const initialState = {
     username: "",
@@ -53,6 +53,7 @@ function SignupPage() {
                 data.confirmPassword,
             );
             console.log("Got response")
+            toast.success('Welcome aboard our Food Journey!');
             setData({
                 ...data,
                 isSubmitting: false,
@@ -64,6 +65,7 @@ function SignupPage() {
             navigate("/dashboard");
         } catch (error) {
             console.log("Error:", error)
+            toast.error('user already exists with that name/email.');
             setData({
                 ...data,
                 isSubmitting: false,
@@ -134,12 +136,6 @@ function SignupPage() {
                                 onChange={handleInputChange}
                             />
                         </Form.Group>
-
-                        {/* {data.errorMessage && (
-                            <span className="form-error text-warning">
-                                {data.errorMessage}
-                            </span>
-                        )} */}
                         <Row className="mr-0">
                             <Col>
                                 <br />
@@ -156,9 +152,7 @@ function SignupPage() {
                                         </Button>
 
                                     </Col>
-                                    <Button> Sign-Up{/*type="submit" disabled={data.isSubmitting}>
-                                {data.isSubmitting ? <LoadingSpinner /> : "Sign up"}
-                           */} </Button>
+                                    <Button type="submit"> Sign-Up </Button>
                                 </Row>
                             </Row>
                         </Row>

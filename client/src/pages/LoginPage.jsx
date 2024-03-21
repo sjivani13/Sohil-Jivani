@@ -5,6 +5,8 @@ import "./pages.css"
 import { useNavigate } from 'react-router-dom';
 import { useProvideAuth } from '../hooks/useProvideAuth';
 import { setAuthToken } from '../utils/api.util';
+import { toast } from 'react-toastify'
+
 
 const initialState = {
     username: "",
@@ -35,6 +37,16 @@ function LoginPage() {
 
         event.preventDefault();
         event.stopPropagation();
+        toast.success('Welcome Back!', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+        });
         setData({
             ...data,
             isSubmitting: true,
@@ -46,6 +58,7 @@ function LoginPage() {
             navigate("/dashboard");
         } catch (error) {
             console.log(error)
+            toast.error('Missing username or password.');
             setData({
                 ...data,
                 isSubmitting: false,
