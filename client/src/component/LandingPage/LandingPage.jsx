@@ -20,9 +20,9 @@ function LandingPage() {
                 <Card.Img src="dinner.jpg" style={{ borderRadius: "30%" }} />
                 <Card.Body style={{ background: "black" }}>
                     <Card.Title style={{ color: "white" }}>Fried Chicken</Card.Title>
+                    <p>Cook time: 30-45 Min</p>
                     <Card.Text style={{ color: "#b27581" }}>
-                        Some quick example text to build on the card title and make up the
-                        bulk of the card's content.
+                        Homemade Fried Chicken. Delicious easy family dinner.
                     </Card.Text>
                     <Button style={{ background: "#b27581" }}>Open Recipe</Button>
                 </Card.Body>
