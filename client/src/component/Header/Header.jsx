@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Col, Row, Form, Nav, Navbar, Container } from "react-bootstrap";
 import "./Header.css";
 import { Link } from 'react-router-dom'
+import FuzzySearch from "../FuzzySearch/FuzzySearch";
 
-function Header() {
+function Header({ }) {
+
+    const [filteredData, setFilteredData] = useState(null);
+    const [searchInput, setSearchInput] = useState("");
+
+    const handleSearch = (e) => {
+        const searchStr = e.target.value.toLowerCase();
+        setSearchInput(searchStr);
+        const filteredList = [...data].filter((i) =>
+            i.name.toLowerCase().includes(searchStr)
+        );
+
+        setFilteredData(filteredList);
+    };
+
+
     return (
         <Navbar expand="lg" className="header">
             <Container>
@@ -26,10 +42,12 @@ function Header() {
                                         type="text"
                                         placeholder="Search"
                                         className="search"
+
                                     />
                                 </Col>
                                 <Col xs="auto">
-                                    <Button id="btn" type="submit">Submit</Button>
+                                    <Button id="btn" type="submit" >Submit</Button>
+                                    <FuzzySearch searchInput={searchInput} filterInput={handleSearch} />
                                 </Col>
                             </Row>
                         </Form>
