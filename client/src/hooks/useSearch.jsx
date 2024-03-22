@@ -31,8 +31,6 @@ export const ProvideSearch = ({ children }) => {
     useEffect(() => {
         api.get("/recipes")
             .then((res) => dispatch({ type: "SET_RECIPES", payload: res.data }))
-
-
     }, [])
 
     return <searchContext.Provider value={{ state, dispatch }}>
