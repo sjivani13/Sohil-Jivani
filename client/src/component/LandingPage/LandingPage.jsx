@@ -1,15 +1,7 @@
-import React, { useState } from 'react'
-import "./LandingPage.css"
+import React from 'react';
+import "./LandingPage.css";
 import { Container, Card, Button } from "react-bootstrap";
-
-const initialState = {
-    username: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-    isSubmitting: false,
-    errorMessage: null,
-};
+import { Link } from 'react-router-dom';
 
 function LandingPage() {
 
@@ -24,7 +16,7 @@ function LandingPage() {
                     <Card.Text style={{ color: "#b27581" }}>
                         Homemade Fried Chicken. Delicious easy family dinner.
                     </Card.Text>
-                    <Button style={{ background: "#b27581" }}>Open Recipe</Button>
+                    <Button style={{ background: "#b27581" }} as={Link} to="/post">Open Recipe</Button>
                 </Card.Body>
             </Card>
         </Container >

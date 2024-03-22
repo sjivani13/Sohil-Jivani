@@ -12,7 +12,6 @@ const initialState = {
     email: "",
     password: "",
     confirmPassword: "",
-    isSubmitting: false,
     errorMessage: null,
 };
 
@@ -85,9 +84,6 @@ function SignupPage() {
                     >
                         <h2 id="head" className="mb-3">Join Our Food Journey!!</h2>
 
-                        {/* <Form.Group>
-                            <Button id="uploadBtn">Upload Food Image <input className="fa fa-upload" type="file" /></Button>
-                        </Form.Group> */}
                         <Form.Group controlId="username-register">
                             <Form.Label>Username</Form.Label>
                             <InputGroup>
@@ -119,7 +115,7 @@ function SignupPage() {
                                 type="password"
                                 name="password"
                                 required
-                                id="inputPasswordRegister"
+                                id="inputPassword"
                                 value={data.password}
                                 onChange={handleInputChange}
                             />
@@ -145,10 +141,8 @@ function SignupPage() {
                                 <Row className="mr-0">
                                     <Col>
                                         Already a user?
-
                                         <Button>
                                             <Nav.Link id="signup" as={Link} to="/login">Login</Nav.Link>
-
                                         </Button>
 
                                     </Col>

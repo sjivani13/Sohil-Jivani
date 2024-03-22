@@ -1,23 +1,27 @@
 import React, { useState } from "react";
-import { Button, Col, Row, Form, Nav, Navbar, Container } from "react-bootstrap";
+import { Form, Nav, Navbar, Container } from "react-bootstrap";
 import "./Header.css";
 import { Link } from 'react-router-dom'
 import FuzzySearch from "../FuzzySearch/FuzzySearch";
+import useSearch from "../../hooks/useSearch";
+import { useProvideAuth } from "../../hooks/useProvideAuth";
 
-function Header({ }) {
+function Header() {
+    const { state: { isAuthenticated } } = useProvideAuth();
 
     const [filteredData, setFilteredData] = useState(null);
     const [searchInput, setSearchInput] = useState("");
+    // const { searchData, handleSearchInputChange } = useSearch()
 
-    const handleSearch = (e) => {
-        const searchStr = e.target.value.toLowerCase();
-        setSearchInput(searchStr);
-        const filteredList = [...data].filter((i) =>
-            i.name.toLowerCase().includes(searchStr)
-        );
+    // const handleSearch = (e) => {
+    //     const searchStr = e.target.value.toLowerCase();
+    //     setSearchInput(searchStr);
+    //     const filteredList = [...data].filter((i) =>
+    //         i.name.toLowerCase().includes(searchStr)
+    //     );
 
-        setFilteredData(filteredList);
-    };
+    //     setFilteredData(filteredList);
+    // };
 
 
     return (
@@ -35,30 +39,24 @@ function Header({ }) {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar id="basic-navbar-nav">
                     <Nav className="center">
-                        <Form inline="true">
-                            <Row>
-                                <Col xs="auto">
-                                    <Form.Control
-                                        type="text"
-                                        placeholder="Search"
-                                        className="search"
-
-                                    />
-                                </Col>
-                                <Col xs="auto">
-                                    <Button id="btn" type="submit" >Submit</Button>
-                                    <FuzzySearch searchInput={searchInput} filterInput={handleSearch} />
-                                </Col>
-                            </Row>
-                        </Form>
+                        <FuzzySearch />
                     </Nav>
                     <Nav>
-                        <Nav.Link id="home" as={Link} to="home">Home</Nav.Link>
-                        <Nav.Link id="login" as={Link} to="login">Log In</Nav.Link>
+
+                        {isAuthenticated ?
+                            <>
+                                {/* Set of links to see when logged in */}
+                                <Nav.Link id="home" as={Link} to="home">Home</Nav.Link>
+                                <Nav.Link id="logout" as={Link} to="logout">Log Out</Nav.Link>
+                            </>
+                            :
+                            <>
+                                {/* Set of links to see when logged out */}
+                                <Nav.Link id="login" as={Link} to="login">Log In</Nav.Link>
+                            </>
+                        }
 
                     </Nav>
-
-                    {/* <Nav.Link href="#link">Link</Nav.Link> */}
 
                 </Navbar>
             </Container>

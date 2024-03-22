@@ -13,15 +13,15 @@ const reducer = (state, action) => {
         case "LOGIN":
             return {
                 ...state,
-                isAuthenticated: true,
                 user: action.payload,
+                isAuthenticated: true,
             };
         case "LOGOUT":
             localStorage.clear();
             return {
                 ...state,
-                isAuthenticated: false,
                 user: null,
+                isAuthenticated: false,
             };
         default:
             return state;
@@ -30,20 +30,16 @@ const reducer = (state, action) => {
 
 const authContext = createContext();
 
-
 export function ProvideAuth({ children }) {
     const [state, dispatch] = useReducer(reducer, initialState);
     return (
-        <authContext.Provider
-            value={{
-                state,
-                dispatch,
-            }}
-        >
+        <authContext.Provider value={{ state, dispatch, }}>
             {children}
         </authContext.Provider>
     );
 }
+
+
 
 export const useAuth = () => {
     return useContext(authContext);
@@ -52,6 +48,26 @@ export const useAuth = () => {
 export function useProvideAuth() {
     const { state, dispatch } = useAuth();
     let navigate = useNavigate();
+
+    const signup = async (username, email, password, confirmPassword) => {
+        try {
+            await api.post(`/auth/signup`, {
+                username: username,
+                password: password,
+                confirmPassword: confirmPassword,
+                email: email,
+            });
+            return await signin(username, password);
+        } catch (error) {
+            console.log(error);
+            if (error.response) {
+                throw new Error(error.response.data.error);
+            } else {
+                throw error;
+            }
+        }
+    };
+
 
     const signin = async (username, password) => {
         try {
@@ -75,24 +91,6 @@ export function useProvideAuth() {
         }
     };
 
-    const signup = async (username, email, password, confirmPassword) => {
-        try {
-            await api.post(`/auth/signup`, {
-                username: username,
-                password: password,
-                confirmPassword: confirmPassword,
-                email: email,
-            });
-            return await signin(username, password);
-        } catch (error) {
-            console.log(error);
-            if (error.response) {
-                throw new Error(error.response.data.error);
-            } else {
-                throw error;
-            }
-        }
-    };
 
     const signout = () => {
         dispatch({
@@ -101,6 +99,8 @@ export function useProvideAuth() {
         navigate("/");
     };
 
+
+    //gets user and displays name at the top
     const getCurrentUser = () => {
         return JSON.parse(localStorage.getItem("RecipeUser"));
     };
@@ -118,7 +118,7 @@ export function useProvideAuth() {
             });
         }
     }, [dispatch]);
-
+    //
     return {
         state,
         getCurrentUser,
