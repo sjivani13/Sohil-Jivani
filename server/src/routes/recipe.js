@@ -1,7 +1,8 @@
 import express from "express";
 const router = express.Router();
+
 // import { Recipe } from "../models";
-// import Recipe from "../models/recipe";
+import Recipe from "../models/recipe";
 
 
 router.get("/", async (req, res) => {
@@ -24,7 +25,7 @@ router.get("/", async (req, res) => {
     res.json(posts.map((post) => post.toJSON()));
 });
 
-router.post("/", requireAuth, async (req, res, next) => {
+router.post("/", async (req, res, next) => {
     const { ingredients, instructions } = req.body;
     const { user } = req;
 
@@ -66,7 +67,7 @@ router.get("/:id", async (req, res) => {
     }
 });
 
-router.delete("/:id", requireAuth, async (req, res, next) => {
+router.delete("/:id", async (req, res, next) => {
     const { id } = req.params
 
     try {
@@ -79,7 +80,7 @@ router.delete("/:id", requireAuth, async (req, res, next) => {
     } catch (error) { }
 });
 
-router.all("/like/:postId", requireAuth, async (req, res) => {
+router.all("/like/:postId", async (req, res) => {
     const { postId } = req.params;
     const { user } = req;
     const recipe = await Recipe.findOne({ _id: postId });

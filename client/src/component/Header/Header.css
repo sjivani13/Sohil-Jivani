@@ -14,7 +14,8 @@
  }
 
  #login,
- #home {
+ #home,
+ #logout {
      color: #b27581;
      font-size: 20px;
      font-family: "Rampart One", system-ui;
