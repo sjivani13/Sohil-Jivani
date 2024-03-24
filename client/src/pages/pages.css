@@ -24,10 +24,57 @@ button.btn.btn-primary {
     background-color: #f47a92c6;
 }
 
-toast {
+.toast {
     background: #f47a92c6;
     color: #fff;
     font-size: 20px;
     width: 34vw;
     padding: 30px 20px;
+}
+
+/* recipe upload page css */
+#uploadCont {
+    max-width: 800px;
+    max-height: 800px;
+    text-align: center;
+}
+
+#uploadBtn {
+    max-width: 245px;
+
+}
+
+#recipe-upload {
+    columns: 2;
+    height: 500px;
+}
+
+div.card {
+    margin-top: 5rem;
+    color: rgb(255, 120, 120);
+    font-family: "Madimi One";
+    font-size: large;
+    /* height: 30rem; */
+    background-color: #3a4c2e !important;
+}
+
+#head {
+    color: black;
+
+}
+
+#desc,
+#recipe-ingredients,
+#recipe-method {
+    color: white;
+    font-family: "Madimi One";
+}
+
+#submitBtn {
+    background-color: #f47a92c6;
+    color: whitesmoke;
+    font-family: "Madimi One";
+    max-width: fit-content;
+    align-self: center;
+    cursor: pointer;
 }

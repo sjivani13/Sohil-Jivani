@@ -44,7 +44,9 @@ function Dashboard() {
 
                 </Card>
                 {/* <RecipePost recipe={recipe} /> */}
+
             </Container >
+            {/* <i className="fa fa-cloud-upload" style={{ color: "purple", fontSize: "50px" }} ></i> */}
 
         </div>
 

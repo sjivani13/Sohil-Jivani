@@ -12,6 +12,7 @@ import "react-toastify/dist/ReactToastify.min.css";
 
 import OpenRecipe from "./component/OpenRecipe/OpenRecipe"
 import RecipeUpload from "./pages/RecipeUpload"
+<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
 
 
 

@@ -7,10 +7,10 @@ import useSearch from "../../hooks/useSearch";
 import { useProvideAuth } from "../../hooks/useProvideAuth";
 
 function Header() {
-    const { state: { isAuthenticated } } = useProvideAuth();
+    const { state: { isAuthenticated }, signout } = useProvideAuth();
 
-    const [filteredData, setFilteredData] = useState(null);
-    const [searchInput, setSearchInput] = useState("");
+    // const [filteredData, setFilteredData] = useState(null);
+    // const [searchInput, setSearchInput] = useState("");
     // const { searchData, handleSearchInputChange } = useSearch()
 
     // const handleSearch = (e) => {
@@ -36,7 +36,6 @@ function Header() {
                         className="d-inline-block align-top"
                     />{' '}
                     Trio Digital Dishes</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar id="basic-navbar-nav">
                     <Nav className="center">
                         <FuzzySearch />
@@ -47,7 +46,16 @@ function Header() {
                             <>
                                 {/* Set of links to see when logged in */}
                                 <Nav.Link id="home" as={Link} to="home">Home</Nav.Link>
-                                <Nav.Link id="logout" as={Link} to="logout">Log Out</Nav.Link>
+                                {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
+                                <Nav.Link id="logout" as={Link} to="logout" onClick={signout}>Log Out</Nav.Link>
+                                <Nav.Link to="recipe" as={Link} type="file">
+                                    <img
+                                        alt=""
+                                        src="/book.png"
+                                        width="35"
+                                        height="35"
+                                    />
+                                </Nav.Link>
                             </>
                             :
                             <>
