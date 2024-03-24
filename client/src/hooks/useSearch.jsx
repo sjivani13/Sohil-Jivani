@@ -52,7 +52,12 @@ const useSearch = () => {
                 return true;
             } else if (recipe.instructions.toLowerCase().includes(state.searchTerm.toLowerCase())) {
                 return true;
-            } else {
+            } else if (recipe.title.toLowerCase().includes(state.searchTerm.toLowerCase())) {
+                return true;
+            } else if (recipe.description.toLowerCase().includes(state.searchTerm.toLowerCase())) {
+                return true;
+            }
+            else {
                 return false;
             }
         })
@@ -64,4 +69,4 @@ const useSearch = () => {
 
 }
 
-export default useSearch
+export default useSearch 

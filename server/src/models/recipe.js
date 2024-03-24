@@ -2,8 +2,6 @@ import mongoose from "mongoose";
 
 const recipeSchema = new mongoose.Schema(
     {
-        // title,
-        // description,
         ingredients: {
             type: String,
             required: true,
@@ -12,15 +10,15 @@ const recipeSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        // recipeType: {
-        //     type: String,
-        //     enum: ["breakfast", "brunch", "lunch", "dinner", "appetizer", "dessert", "snack"]
-        // },
-        recipeCreated: {
-            type: Date,
-            default: Date.now,
+        title: {
+            type: String,
+            required: true,
         },
-    }, { timestamps: true }
+        description: {
+            type: String,
+            required: true,
+        },
+    },
 )
 
 const Recipe = mongoose.model("Recipe", recipeSchema);
