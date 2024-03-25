@@ -22,7 +22,7 @@ function RecipeUpload() {
                 <form id='recipe-upload'>
                     <label htmlFor='recipe-title'>
                         <p>Title your dish: </p>
-                        <textarea name='recipe-title' id="recipe-title" rows="2" required></textarea>
+                        <textarea name='recipe-title' id="recipe-title" row="1" required></textarea>
                     </label>
                     <label htmlFor='recipe-desc'>
                         <p>Small description about your dish: </p>

@@ -54,20 +54,21 @@ div.card {
     color: rgb(255, 120, 120);
     font-family: "Madimi One";
     font-size: large;
-    /* height: 30rem; */
-    background-color: #3a4c2e !important;
+    background-color: #3a4c2e;
 }
 
 #head {
-    color: black;
+    color: rgb(255, 120, 120);
 
 }
 
 #desc,
 #recipe-ingredients,
-#recipe-method {
-    color: white;
+#recipe-method,
+#recipe-title {
+    color: #3a4c2e;
     font-family: "Madimi One";
+
 }
 
 #submitBtn {
