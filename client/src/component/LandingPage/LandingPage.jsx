@@ -12,7 +12,7 @@ function LandingPage() {
                 <Card.Img src="dinner.jpg" style={{ borderRadius: "30%" }} />
                 <Card.Body style={{ background: "black" }}>
                     <Card.Title style={{ color: "white" }}>Fried Chicken</Card.Title>
-                    <p>Cook time: 30-45 Min</p>
+                    {/* <p>Cook time: 30-45 Min</p> */}
                     <Card.Text style={{ color: "#b27581" }}>
                         Homemade Fried Chicken. Delicious easy family dinner.
                     </Card.Text>

@@ -68,6 +68,7 @@ div.card {
 #recipe-title {
     color: #3a4c2e;
     font-family: "Madimi One";
+    border-radius: 15%;
 
 }
 

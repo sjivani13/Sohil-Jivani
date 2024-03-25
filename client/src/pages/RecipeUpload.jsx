@@ -39,8 +39,6 @@ function RecipeUpload() {
                     <Button id="uploadBtn" type="file"> Upload Food Image
                         <input className="fa fa-upload" type="file" />
                     </Button>
-
-
                 </form>
                 <button id="submitBtn" type="submit">Add Recipe</button>
             </Card>
@@ -71,28 +69,28 @@ export default RecipeUpload;
 
 
 {/* <form >
-                        <label>
-                            Meal Type:
-                            <select>
-                                <option value="mealType">Choose Meal Type</option>
-                                <option value="breakfast">Breakfast</option>
-                                <option value="lunch">Lunch</option>
-                                <option value="dinner">Dinner</option>
-                                <option value="dessert">Dessert</option>
-                                <option value="snack">Snack</option>
-                            </select>
-                        </label>
-                        <label>
-                            Cook Time:
-                            <select>
-                                <option value="cooktime">Choose Cook Time</option>
-                                <option value="lessThan30">Less Than 30 </option>
-                                <option value="thirty">30 min to 1 hour</option>
-                                <option value="hours">1 to 2 hours</option>
-                                <option value="crockpot">Crockpot</option>
-                            </select>
-                        </label>
-                    </form> */}
+    <label>
+        Meal Type:
+        <select>
+            <option value="mealType">Choose Meal Type</option>
+            <option value="breakfast">Breakfast</option>
+            <option value="lunch">Lunch</option>
+            <option value="dinner">Dinner</option>
+            <option value="dessert">Dessert</option>
+            <option value="snack">Snack</option>
+        </select>
+    </label>
+    <label>
+        Cook Time:
+        <select>
+            <option value="cooktime">Choose Cook Time</option>
+            <option value="lessThan30">Less Than 30 </option>
+            <option value="thirty">30 min to 1 hour</option>
+            <option value="hours">1 to 2 hours</option>
+            <option value="crockpot">Crockpot</option>
+        </select>
+    </label>
+</form> */}
 
 
 
