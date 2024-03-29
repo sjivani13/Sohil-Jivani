@@ -59,7 +59,7 @@ function Header() {
                             </>
                             :
                             <>
-                                {/* Set of links to see when logged out */}
+                                {/* Set of links to see when logged out  */}
                                 <Nav.Link id="login" as={Link} to="login">Log In</Nav.Link>
                             </>
                         }
