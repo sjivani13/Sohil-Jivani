@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+const { ObjectId } = mongoose.Schema.Types;
 
 const recipeSchema = new mongoose.Schema(
     {
@@ -18,6 +19,12 @@ const recipeSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
+        likes: [
+            {
+                type: ObjectId,
+                ref: "User"
+            }
+        ]
     },
 )
 
