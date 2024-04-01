@@ -1,23 +1,14 @@
-import React, { useState } from 'react';
-import { Form, Button, InputGroup, Container, Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-// import Recipe from '../../../server/src/models/recipe';
-
-// initialState = {
-//     instructions: "",
-//     ingredients: "",
-//     recipeCreated: Date.now()
-// }
+import React from 'react';
+import { Button, Container, Card } from 'react-bootstrap';
 
 function RecipeUpload() {
-    // const [share, setShare] = useState(initialState)
 
     return (
         <Container id="uploadCont">
 
 
             <Card>
-                <h2 id="head">Share Your Recipe!!</h2>
+                <h2 id="share">Share Your Recipe!!</h2>
 
                 <form id='recipe-upload'>
                     <label htmlFor='recipe-title'>

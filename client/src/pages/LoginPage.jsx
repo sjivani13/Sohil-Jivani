@@ -45,7 +45,7 @@ function LoginPage() {
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            theme: "colored",
+            theme: "dark"
         });
         setData({
             ...data,
