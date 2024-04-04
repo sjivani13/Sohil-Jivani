@@ -71,7 +71,7 @@ function RecipeUpload({ setIsUploaded, handleFileChange, image}) {
 
 
             <Card>
-                <h2 id="head">Share Your Recipe!!</h2>
+                <h2 id="share">Share Your Recipe!!</h2>
 
                 <form onSubmit={handleSubmit} id='recipe-upload'>
                     <label htmlFor='recipe-title'>

@@ -1,6 +1,5 @@
 import axios from "axios";
 import { toast } from "react-toastify";
-// import { API_TARGET, API_URL } from "../constants.js";
 import { API_TARGET, API_URL } from "../constants";
 
 const getUserToken = () => {

@@ -30,6 +30,12 @@ const recipeSchema = new mongoose.Schema(
             type: String,
         },
         
+        likes: [
+            {
+                type: ObjectId,
+                ref: "User"
+            }
+        ]
     },
         
 )

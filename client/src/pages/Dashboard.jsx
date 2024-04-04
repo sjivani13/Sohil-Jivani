@@ -29,23 +29,42 @@ function Dashboard({ recipe }) {
         <div>
             <h2>Hello, {user.username}</h2>
             <Container style={{ marginTop: "50px" }}>
-                {recipe?.map((recipe) => (
-                     <Card key = {recipe._id} style={{ background: "black", width: '18rem', borderRadius: "40%" }}>
-                     <Card.Img src="dinner.jpg" style={{ borderRadius: "30%" }} />
-                     <Card.Text><FavButton /> <ReviewButton /> </Card.Text>
-                     <Card.Body style={{ background: "black" }}>
-                         <Card.Title style={{ color: "white" }}>{recipe.title} </Card.Title>
-                         <Card.Text style={{ color: "#b27581" }}>
-                             {recipe.description}
-                         </Card.Text>
-                         <Button style={{ background: "#b27581" }}
-                             as={Link} to={`/OpenRecipe/${recipe._id}`}
-                         >Open Recipe </Button>
-                     </Card.Body>
- 
-                 </Card>
-                ))}
-               
+                {filteredRecipes.map((recipe) => {
+                   <Card style={{ background: "black", width: '18rem', borderRadius: "40%" }}>
+                   <Card.Img src="dinner.jpg" style={{ borderRadius: "30%" }} />
+                   <Card.Text><button> <FavButton recipeId={recipe._id}/> </button>
+                   <button> <ReviewButton/> </button>
+                   </Card.Text>
+                   <Card.Body style={{ background: "black" }}>
+                       <Card.Title style={{ color: "white" }}>Fried Chicken 2.0</Card.Title>
+                       <Card.Text style={{ color: "#b27581" }}>
+                           Some quick example text to build on the card title and make up the
+                           bulk of the card's content.
+                       </Card.Text>
+                       <Button style={{ background: "#b27581" }}
+                           as={Link} to="/post"
+                       >Open Recipe </Button>
+                   </Card.Body>
+
+               </Card>
+                })}
+                <Card style={{ background: "black", width: '18rem', borderRadius: "40%" }}>
+                    <Card.Img src="dinner.jpg" style={{ borderRadius: "30%" }} />
+                    <Card.Text><button> <FavButton /> </button>
+                    <button> <ReviewButton/> </button>
+                    </Card.Text>
+                    <Card.Body style={{ background: "black" }}>
+                        <Card.Title style={{ color: "white" }}>Fried Chicken 2.0</Card.Title>
+                        <Card.Text style={{ color: "#b27581" }}>
+                            Some quick example text to build on the card title and make up the
+                            bulk of the card's content.
+                        </Card.Text>
+                        <Button style={{ background: "#b27581" }}
+                            as={Link} to="/post"
+                        >Open Recipe </Button>
+                    </Card.Body>
+
+                </Card>
                 {/* <RecipePost recipe={recipe} /> */}
 
             </Container >
@@ -56,6 +75,6 @@ function Dashboard({ recipe }) {
     )
 }
 
-export default Dashboard
+export default Dashboard 
 // as={Link} to="/recipe"
 //this is ^^ a link to submit a recipe from the dashboard.

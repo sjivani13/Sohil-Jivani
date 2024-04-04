@@ -96,10 +96,10 @@ router.delete("/:id", async (req, res, next) => {
     } catch (error) { }
 });
 
-router.all("/like/:postId", async (req, res) => {
-    const { postId } = req.params;
+router.all("/like/:recipeId", async (req, res) => {
+    const { recipeId } = req.params;
     const { user } = req;
-    const recipe = await Recipe.findOne({ _id: postId });
+    const recipe = await Recipe.findOne({ _id: recipeId });
 
     if (!recipe) {
         return res.status(422).json({ error: "Cannot find recipe" });
