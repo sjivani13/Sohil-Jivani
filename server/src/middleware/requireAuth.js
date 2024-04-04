@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken'
 import mongoose from 'mongoose'
 import keys from '../config/keys'
-import { User } from '../models'
+import { User } from '../models/'
 
 module.exports = async (req, res, next) => {
   const authorization = req.get('authorization')

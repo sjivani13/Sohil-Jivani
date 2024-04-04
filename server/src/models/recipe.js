@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 const { ObjectId } = mongoose.Schema.Types;
-
 const recipeSchema = new mongoose.Schema(
     {
         ingredients: {
@@ -19,6 +18,18 @@ const recipeSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
+        recipeCreated: {
+            type: Date,
+            default: Date.now
+        },
+
+       
+        user: { type: ObjectId, ref: "User" },
+
+        image: {
+            type: String,
+        },
+        
         likes: [
             {
                 type: ObjectId,
@@ -26,6 +37,7 @@ const recipeSchema = new mongoose.Schema(
             }
         ]
     },
+        
 )
 
 const Recipe = mongoose.model("Recipe", recipeSchema);

@@ -1,8 +1,71 @@
-import React from 'react';
-import { Button, Container, Card } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Form, Button, InputGroup, Container, Card } from 'react-bootstrap';
+import { Link, useNavigate } from 'react-router-dom';
+// import Recipe from '../../../server/src/models/recipe';
+import api from '../utils/api.util';
+import { toast } from 'react-toastify'
+import ImageUpdater from '../component/ImageUpdater/ImageUpdater';
 
-function RecipeUpload() {
+ const initialState = {
+    instructions: "",
+     ingredients: "",
+     description: "",
+     recipe:"",
+     recipeCreated: Date.now(),
+     image:"",
+ }
 
+function RecipeUpload({ setIsUploaded, handleFileChange, image}) {
+     const [share, setShare] = useState(initialState)
+     const handleInputChange = (event) => {
+        setShare({
+            ...share,
+            [event.target.name]: event.target.value,
+        });
+    };
+    console.log(share)
+
+    const navigate = useNavigate()
+    const handleSubmit = async (event) => {
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+
+        event.preventDefault();
+        event.stopPropagation();
+        toast.success('Submitted!', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+        });
+        //setData({
+          //  ...data,
+         //   isSubmitting: true,
+          //  errorMessage: null,
+       // });
+        try {
+            const res = await api.post("/recipes",{instruction:share.instructions, ingredients:share.ingredients, descriptions:share.description, recipe:share.recipe, reciprCreated:share.recipeCreated, image},{headers: {"content-type": "multipart/form-data"}});
+            console.log(res)
+            setIsUploaded(true)
+            navigate("/dashboard");
+        } catch (error) {
+            console.log(error)
+            toast.error('Error!! Please try again! ');
+            setIsUploaded(false)
+            //setData({
+              //  ...data,
+             //   isSubmitting: false,
+              //  errorMessage: error ? error.message || error.statusText : null,
+          //  });
+        }
+    };
     return (
         <Container id="uploadCont">
 
@@ -10,28 +73,30 @@ function RecipeUpload() {
             <Card>
                 <h2 id="share">Share Your Recipe!!</h2>
 
-                <form id='recipe-upload'>
+                <form onSubmit={handleSubmit} id='recipe-upload'>
                     <label htmlFor='recipe-title'>
                         <p>Title your dish: </p>
-                        <textarea name='recipe-title' id="recipe-title" row="1" required></textarea>
+                        
+                        <textarea onChange={handleInputChange}name='recipe' id="recipe-title" row="1" required></textarea>
                     </label>
                     <label htmlFor='recipe-desc'>
                         <p>Small description about your dish: </p>
-                        <textarea name='recipe-desc' id="desc" rows="2" required></textarea>
+                        <textarea onChange={handleInputChange}name="description"  id="desc" rows="2" required></textarea>
                     </label>
                     <label htmlFor="recipe-ingredients">
                         <p>Ingredients:</p>
-                        <textarea id="recipe-ingredients" rows="5" required></textarea>
+                        <textarea onChange={handleInputChange}name="ingredients" id="recipe-ingredients" rows="5" required></textarea>
                     </label>
                     <p>Instructions:</p>
                     <label htmlFor="recipe-method">
-                        <textarea id="recipe-method" rows="5" required></textarea>
+                        <textarea onChange={handleInputChange}name="instructions" id="recipe-method" rows="5" required></textarea>
                     </label>
                     <Button id="uploadBtn" type="file"> Upload Food Image
-                        <input className="fa fa-upload" type="file" />
+                        <input onChange={handleFileChange} name="file" className="fa fa-upload" type="file" />
                     </Button>
+                    <button id="submitBtn" type="submit">Add Recipe</button>
                 </form>
-                <button id="submitBtn" type="submit">Add Recipe</button>
+                
             </Card>
         </Container >
     )

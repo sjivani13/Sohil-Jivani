@@ -1,19 +1,20 @@
 import express from "express";
 const router = express.Router();
-import Recipe from "../models/recipe";
-
+import requireAuth from "../middleware/requireAuth";
+import { Recipe } from "../models";
+import path from "path";
 
 router.get("/", async (req, res) => {
     const populateQuery = [
-        { path: "author", select: ["username"] },
-        {
-            path: "reviews",
-            populate: { path: "user", select: ["username"] },
-        },
-        {
-            path: "likes",
-            populate: { path: "user", select: ["username"] },
-        }
+        { path: "user", select: ["username"] },
+        // {
+        // path: "reviews",
+        // populate: { path: "user", select: ["username"] },
+        // },
+        // {
+        //   path: "likes",
+        //  populate: { path: "user", select: ["username"] },
+        //}
     ];
     const posts = await Recipe.find({})
         .sort({ created: -1 })
@@ -23,43 +24,62 @@ router.get("/", async (req, res) => {
     res.json(posts.map((post) => post.toJSON()));
 });
 
-router.post("/", async (req, res, next) => {
-    const { ingredients, instructions } = req.body;
+router.post("/", requireAuth, async (req, res, next) => {
+    const { ingredients, instruction, recipe: title, recipeCreated, descriptions } = req.body;
     const { user } = req;
-
-
+    console.log(req.body)
+    console.log(req.files.File)
     const recipe = new Recipe({
         ingredients: ingredients,
-        instructions: instructions,
-        user: email,
+        instructions: instruction,
+        title: title,
+        description: descriptions,
+        recipeCreate: recipeCreated,
+        user: user.id,
     });
 
     try {
-        const savedPost = await recipe.save();
-        user.posts = user.posts.concat(savedPost._id);
+        let sampleFile = req.files?.file;
+        let uploadPath
+        if (req.files) {
+            uploadPath = path.join(__dirname, "..", "public", "images", req?.files.File.name);
 
-        await user.save();
+            // To save the file using mv() function 
+            //  sampleFile.mv(uploadPath, function (err) { 
+            //   if (err) { 
+            console.log(err);
+            //   return  res.send("Failed !!"); 
+            //    } else  res.send("Successfully Uploaded !!"); 
+            //  }); 
+            //  recipe.image= uploadPath
+            // const savedPost = await recipe.save();
+            // user.posts = user.posts.concat(savedPost._id);
 
-        res.json(savedPost.toJSON());
-    } catch (error) {
-        console.log
+            await user.save();
+
+            res.json(savedPost.toJSON());
+        }
+    }
+    catch (error) {
+
         next(error);
     }
 });
 
 router.get("/:id", async (req, res) => {
     const populateQuery = [
-        { path: "email", select: ["username"] },
-        {
-            path: "reviews",
-            populate: { path: "email", select: ["username"] },
-        },
+        { path: "user", select: ["username"] },
+        //  {
+        // path: "reviews",
+        //  populate: { path: "email", select: ["username"] },
+        // },
     ];
     const post = await Recipe.findById(req.params.id)
         .populate(populateQuery)
         .exec();
     if (post) {
-        res.json(post.toJSON());
+        console.log(post)
+        return res.json(post.toJSON());
     } else {
         res.status(404).end();
     }
