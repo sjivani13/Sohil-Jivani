@@ -21,7 +21,7 @@ function OpenRecipe() {
                 <Card key={oneRecipe?._id} style={{ height: '25rem', width: '50rem' }}>
                     <Card.Body>
 
-                        <Card.Img src="dinner.jpg" style={{ borderRadius: "30%" }} />
+                        <Card.Img  src={oneRecipe?.image ? oneRecipe?.image : "dinner.jpg"}style={{ borderRadius: "30%" }} />
                         <Card.Title style={{ fontSize: '33px' }}>{oneRecipe?.title}</Card.Title>
 
                         <Card.Subtitle style={{ fontSize: '17px' }} className="mb-2 text-muted">
