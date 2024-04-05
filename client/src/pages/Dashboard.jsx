@@ -31,8 +31,8 @@ function Dashboard({ recipe }) {
             <h2>Hello, {user.username}</h2>
             <Container style={{ marginTop: "50px" }}>
                 {recipes?.map((recipe) => (
-                    <Card key={recipe._id} style={{ background: "black", width: '18rem', borderRadius: "40%" }}>
-                        <Card.Img src="dinner.jpg" style={{ borderRadius: "30%" }} />
+                    <Card key={recipe._id} style={{ background: "black", width: '18rem', borderRadius: "40%", marginTop: "25px" }}>
+                        <Card.Img src="dinner.jpg" style={{ borderRadius: "20%" }} />
                         <Card.Text><FavButton />
                             {/* <ReviewButton /> */}
                         </Card.Text>

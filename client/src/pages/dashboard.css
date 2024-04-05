@@ -1,19 +1,14 @@
 button {
     background: none;
     border: none;
-    /* max-width: 10em; */
 }
 
 div.container {
     display: grid;
-    grid-template-columns: 350px 350px 350px 350px;
-    /* 
-    grid-template-rows: 150px 150px;
-    grid-gap: 10em; */
+    grid-template-columns: 310px 310px 310px 310px;
+    grid-template-rows:
 }
 
-/* div.card,
-div.card-body {
-    grid-template-columns: 156px 156px 156px 156px;
-    grid-template-rows: 100px 200px;
-} */
+div {
+    align-self: auto;
+}

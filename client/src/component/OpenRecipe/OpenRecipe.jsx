@@ -17,8 +17,13 @@ function OpenRecipe() {
     return (
         <>
             <Button style={{ background: "#b27581" }} as={Link} to="/dashboard">Go Back</Button>
-            <Container style={{ alignContent: 'center', marginLeft: '25em' }}>
-                <Card key={oneRecipe?._id} style={{ height: '25rem', width: '50rem' }}>
+            <Container style={{
+                fontFamily: "Madimi One",
+                fontSize: 'large',
+                textAlign: 'center'
+
+            }}>
+                <Card key={oneRecipe?._id} style={{ color: '#ff7878', backgroundColor: '#3a4c2e', height: '25rem', width: '60rem' }}>
                     <Card.Body>
 
                         <Card.Img src="dinner.jpg" style={{ borderRadius: "30%" }} />

@@ -16,7 +16,10 @@ function LandingPage() {
                     <Card.Text style={{ color: "#b27581" }}>
                         Homemade Fried Chicken. Delicious easy family dinner.
                     </Card.Text>
-                    <Button style={{ background: "#b27581" }} as={Link} to="/post">Open Recipe</Button>
+                    <Button style={{ background: "#b27581" }} as={Link} to="/openRecipe">Open Recipe</Button>
+                    {/* <Button style={{ background: "#b27581" }}
+                                as={Link} to={`/OpenRecipe/${recipe._id}`}
+                            >Open Recipe </Button> */}
                 </Card.Body>
             </Card>
         </Container >

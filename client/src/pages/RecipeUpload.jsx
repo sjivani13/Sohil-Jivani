@@ -70,32 +70,32 @@ function RecipeUpload({ setIsUploaded, handleFileChange, image }) {
         <Container id="uploadCont">
 
 
-            <Card>
+            <Card id="yourRecipe">
                 <h2 id="share">Share Your Recipe!!</h2>
 
-                <form onSubmit={handleSubmit} id='recipe-upload'>
-                    <label htmlFor='recipe-title'>
+                <Form onSubmit={handleSubmit} id='recipe-upload'>
+                    <Form.Label htmlFor='recipe-title'>
                         <p>Title your dish: </p>
 
-                        <textarea onChange={handleInputChange} name='recipe' id="recipe-title" row="1" required></textarea>
-                    </label>
-                    <label htmlFor='recipe-desc'>
+                        <textarea onChange={handleInputChange} name='recipe' id="recipe-title" required></textarea>
+                    </Form.Label>
+                    <Form.Label htmlFor='recipe-desc'>
                         <p>Small description about your dish: </p>
-                        <textarea onChange={handleInputChange} name="description" id="desc" rows="2" required></textarea>
-                    </label>
-                    <label htmlFor="recipe-ingredients">
+                        <textarea onChange={handleInputChange} name="description" id="desc" rows="3" required></textarea>
+                        <Button id="uploadBtn" type="file"> Upload Food Image
+                            <input onChange={handleFileChange} name="file" className="fa fa-upload" type="file" />
+                        </Button>
+                    </Form.Label>
+                    <Form.Label htmlFor="recipe-ingredients">
                         <p>Ingredients:</p>
                         <textarea onChange={handleInputChange} name="ingredients" id="recipe-ingredients" rows="5" required></textarea>
-                    </label>
+                    </Form.Label>
                     <p>Instructions:</p>
-                    <label htmlFor="recipe-method">
-                        <textarea onChange={handleInputChange} name="instructions" id="recipe-method" rows="5" required></textarea>
-                    </label>
-                    <Button id="uploadBtn" type="file"> Upload Food Image
-                        <input onChange={handleFileChange} name="file" className="fa fa-upload" type="file" />
-                    </Button>
+                    <textarea onChange={handleInputChange} name="instructions" id="recipe-method" rows="5" required></textarea>
+                    <Form.Label htmlFor="recipe-method">
+                    </Form.Label>
                     <button id="submitBtn" type="submit">Add Recipe</button>
-                </form>
+                </Form>
 
             </Card>
         </Container >
