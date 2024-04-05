@@ -17,11 +17,11 @@ function Dashboard({ recipe }) {
     const {
         state: { user }
     } = useProvideAuth();
+    <Header classname="dash" />
 
     if (!user) {
         return null;
     }
-    <Header classname="dash" />
     useEffect(() => {
         api.get("/recipes").then((res) => { setRecipes(res.data) })
         console.log()
