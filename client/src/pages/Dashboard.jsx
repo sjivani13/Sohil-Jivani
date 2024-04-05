@@ -9,6 +9,7 @@ import FavButton from '../component/icons/FavButton';
 import ReviewButton from '../component/icons/ReviewButton';
 import useSearch from '../hooks/useSearch';
 import api from '../utils/api.util';
+import { MdDinnerDining } from 'react-icons/md';
 
 function Dashboard({ recipe }) {
     const [recipes, setRecipes] = useState();
@@ -32,7 +33,7 @@ function Dashboard({ recipe }) {
             <Container style={{ marginTop: "50px" }}>
                 {recipes?.map((recipe) => (
                    <Card key = {recipe._id} style={{ background: "black", width: '18rem', borderRadius: "40%" }}>
-                   <Card.Img src="dinner.jpg" style={{ borderRadius: "30%" }} />
+                   <Card.Img src={recipe.image ? recipe.image : "dinner.jpg"} style={{ borderRadius: "30%" }} />
                    <Card.Text><FavButton /> <ReviewButton /> </Card.Text>
                    <Card.Body style={{ background: "black" }}>
                        <Card.Title style={{ color: "white" }}>{recipe.title} </Card.Title>

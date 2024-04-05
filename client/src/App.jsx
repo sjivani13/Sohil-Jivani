@@ -45,7 +45,7 @@ function App() {
         <Route exact path="/logout" element={<LandingPage />} />
         <Route exact path="/signup" element={<SignupPage />} />
         <Route exact path="/openRecipe/:id" element={<OpenRecipe />} />
-        <Route exact path="/recipe" element={<RecipeUpload setIsUploaded={setIsUploaded} handleFileChange={handleFileChange} image={image} />} />
+        <Route exact path="/recipe" element={<RecipeUpload setIsUploaded={setIsUploaded} handleFileChange={handleFileChange} image={image} setImage={setImage} />} />
       </Routes>
     </>
   )

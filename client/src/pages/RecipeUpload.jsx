@@ -15,7 +15,7 @@ import ImageUpdater from '../component/ImageUpdater/ImageUpdater';
      image:"",
  }
 
-function RecipeUpload({ setIsUploaded, handleFileChange, image}) {
+function RecipeUpload({ setIsUploaded, handleFileChange, image, setImage}) {
      const [share, setShare] = useState(initialState)
      const handleInputChange = (event) => {
         setShare({
@@ -49,11 +49,13 @@ function RecipeUpload({ setIsUploaded, handleFileChange, image}) {
           //  ...data,
          //   isSubmitting: true,
           //  errorMessage: null,
-       // });
+        // });
+        
         try {
             const res = await api.post("/recipes",{instruction:share.instructions, ingredients:share.ingredients, descriptions:share.description, recipe:share.recipe, reciprCreated:share.recipeCreated, image},{headers: {"content-type": "multipart/form-data"}});
             console.log(res)
             setIsUploaded(true)
+            setImage(null)
             navigate("/dashboard");
         } catch (error) {
             console.log(error)

@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema({
   },
   recipePost: [{
     type: ObjectId,
-    ref: 'Post'
+    ref: 'Recipe'
   }],
   postLikes: [
     {

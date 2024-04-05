@@ -1,8 +1,9 @@
 import express from "express";
 const router = express.Router();
 import requireAuth from "../middleware/requireAuth";
-import { Recipe } from "../models";
-import  path  from "path";
+import { Recipe, User } from "../models";
+import path from "path";
+
 
 router.get("/", async (req, res) => {
     const populateQuery = [
@@ -28,7 +29,7 @@ router.post("/", requireAuth, async (req, res, next) => {
     const { ingredients, instruction, recipe:title, recipeCreated, descriptions  } = req.body;
     const { user } = req;
 console.log(req.body)
-console.log(req.files.File)
+console.log(req.files)
     const recipe = new Recipe({
         ingredients: ingredients,
         instructions: instruction,
@@ -39,29 +40,52 @@ console.log(req.files.File)
     });
 
     try {
-      let  sampleFile = req.files?.file;
+        let sampleFile = req.files?.image;
+        let fileName;
+ 
       let uploadPath
-      if (req.files) {uploadPath =  path.join(__dirname, "..", "public", "images", req?.files.File.name); 
-  
-    // To save the file using mv() function 
-  //  sampleFile.mv(uploadPath, function (err) { 
-   //   if (err) { 
+        if (req.files) {
+            fileName = req?.files.image.name
+            uploadPath = path.join(__dirname, "..", "..", "public", "images", fileName ); 
+          
+   console.log(uploadPath)
+   
+    sampleFile.mv(uploadPath, function (err) { 
+      if (err) { 
         console.log(err); 
-   //   return  res.send("Failed !!"); 
-  //    } else  res.send("Successfully Uploaded !!"); 
-  //  }); 
-      //  recipe.image= uploadPath
-       // const savedPost = await recipe.save();
-       // user.posts = user.posts.concat(savedPost._id);
+      return  res.send("Failed !!"); 
+      } //else  res.send("Successfully Uploaded !!"); 
+    }); 
+        recipe.image= `/images/${fileName}`
+        const savedPost = await recipe.save();
+
+          // sabe the recipe id to the userr from the model
+          const currentUser = await User.findById({_id: user.id})
+          currentUser.recipePost = currentUser.recipePost.concat(savedPost._id);
+         
 
         await user.save();
 
-        res.json(savedPost.toJSON());
-    } 
+        return res.json(savedPost.toJSON());
+    } else{
+
+            recipe.image = "dinner.jpg"
+        const savedPost = await recipe.save();
+
+          // sabe the recipe id to the userr from the model
+          const currentUser = await User.findById({_id: user.id})
+          currentUser.recipePost = currentUser.recipePost.concat(savedPost._id);
+         
+
+        await user.save();
+
+        return res.json(savedPost.toJSON());
+
+    }
     }
     catch (error) {
-    
-        next(error);
+    console.log(error)
+      res.send(500).json({message: "something went wrong..."})
     }
 });
 
