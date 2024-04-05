@@ -32,21 +32,21 @@ function Dashboard({ recipe }) {
             <h2>Hello, {user.username}</h2>
             <Container style={{ marginTop: "50px" }}>
                 {recipes?.map((recipe) => (
-                   <Card key = {recipe._id} style={{ background: "black", width: '18rem', borderRadius: "40%" }}>
-                   <Card.Img src={recipe.image ? recipe.image : "dinner.jpg"} style={{ borderRadius: "30%" }} />
-                   <Card.Text><FavButton /> <ReviewButton /> </Card.Text>
-                   <Card.Body style={{ background: "black" }}>
-                       <Card.Title style={{ color: "white" }}>{recipe.title} </Card.Title>
-                       <Card.Text style={{ color: "#b27581" }}>
-                           {recipe.description}
-                       </Card.Text>
-                       <Button style={{ background: "#b27581" }}
-                           as={Link} to={`/OpenRecipe/${recipe._id}`}
-                       >Open Recipe </Button>
-                   </Card.Body>
+                    <Card key={recipe._id} style={{ background: "black", width: '18rem', borderRadius: "40%" }}>
+                        <Card.Img src={recipe.image ? recipe.image : "dinner.jpg"} style={{ borderRadius: "30%" }} />
+                        <Card.Text><FavButton /> <ReviewButton /> </Card.Text>
+                        <Card.Body style={{ background: "black" }}>
+                            <Card.Title style={{ color: "white" }}>{recipe.title} </Card.Title>
+                            <Card.Text style={{ color: "#b27581" }}>
+                                {recipe.description}
+                            </Card.Text>
+                            <Button style={{ background: "#b27581" }}
+                                as={Link} to={`/OpenRecipe/${recipe._id}`}
+                            >Open Recipe </Button>
+                        </Card.Body>
 
-               </Card> 
-                   
+                    </Card>
+
                 ))}
 
 

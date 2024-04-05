@@ -38,8 +38,7 @@ button.btn.btn-primary {
 
 /* recipe upload page css */
 #uploadCont {
-    max-width: 800px;
-    max-height: 800px;
+    /* max-height: 800px; */
     text-align: center;
 }
 
@@ -51,14 +50,17 @@ button.btn.btn-primary {
 #recipe-upload {
     columns: 2;
     height: 500px;
+    flex: content;
 }
 
-div.card {
-    margin-top: 5rem;
-    color: rgb(255, 120, 120);
+#yourRecipe {
+    margin-top: 3rem;
+    color: #ff7878;
     font-family: "Madimi One";
     font-size: large;
     background-color: #3a4c2e;
+    width: fit-content;
+    height: fit-content;
 }
 
 #share {
