@@ -8,13 +8,13 @@ import path from "path";
 router.get("/", async (req, res) => {
     const populateQuery = [
         { path: "user", select: ["username"] },
-       // {
-           // path: "reviews",
-           // populate: { path: "user", select: ["username"] },
-       // },
-       // {
-         //   path: "likes",
-          //  populate: { path: "user", select: ["username"] },
+        // {
+        // path: "reviews",
+        // populate: { path: "user", select: ["username"] },
+        // },
+        // {
+        //   path: "likes",
+        //  populate: { path: "user", select: ["username"] },
         //}
     ];
     const posts = await Recipe.find({})
@@ -26,16 +26,16 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", requireAuth, async (req, res, next) => {
-    const { ingredients, instruction, recipe:title, recipeCreated, descriptions  } = req.body;
+    const { ingredients, instruction, recipe: title, recipeCreated, descriptions } = req.body;
     const { user } = req;
 console.log(req.body)
 console.log(req.files)
     const recipe = new Recipe({
         ingredients: ingredients,
         instructions: instruction,
-        title:title,
+        title: title,
         description: descriptions,
-        recipeCreate:recipeCreated,
+        recipeCreate: recipeCreated,
         user: user.id,
     });
 
@@ -77,7 +77,7 @@ console.log(req.files)
           currentUser.recipePost = currentUser.recipePost.concat(savedPost._id);
          
 
-        await user.save();
+            await user.save();
 
         return res.json(savedPost.toJSON());
 
@@ -92,15 +92,16 @@ console.log(req.files)
 router.get("/:id", async (req, res) => {
     const populateQuery = [
         { path: "user", select: ["username"] },
-      //  {
-           // path: "reviews",
-          //  populate: { path: "email", select: ["username"] },
-       // },
+        //  {
+        // path: "reviews",
+        //  populate: { path: "email", select: ["username"] },
+        // },
     ];
     const post = await Recipe.findById(req.params.id)
         .populate(populateQuery)
         .exec();
-    if (post) {console.log(post)
+    if (post) {
+        console.log(post)
         return res.json(post.toJSON());
     } else {
         res.status(404).end();

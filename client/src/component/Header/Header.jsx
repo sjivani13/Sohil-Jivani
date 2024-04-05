@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { Form, Nav, Navbar, Container } from "react-bootstrap";
+import React from "react";
+import { Nav, Navbar, Container } from "react-bootstrap";
 import "./Header.css";
 import { Link } from 'react-router-dom'
 import FuzzySearch from "../FuzzySearch/FuzzySearch";
-import useSearch from "../../hooks/useSearch";
+// import useSearch from "../../hooks/useSearch";
 import { useProvideAuth } from "../../hooks/useProvideAuth";
 
 function Header() {
@@ -27,7 +27,7 @@ function Header() {
     return (
         <Navbar expand="lg" className="header">
             <Container>
-                <Navbar.Brand id="title" href="#home">
+                <Navbar.Brand id="title" href="/home">
                     <img
                         alt=""
                         src="/pinkFork.png"

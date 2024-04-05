@@ -27,5 +27,5 @@ export const timeSince = (timestamp) => {
         return interval + ' minutes'
     }
 
-    return Math.floor(seconds) + ' seconds'
+    return Math.floor(seconds) + ' its working'
 }

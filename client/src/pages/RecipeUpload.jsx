@@ -6,14 +6,14 @@ import api from '../utils/api.util';
 import { toast } from 'react-toastify'
 import ImageUpdater from '../component/ImageUpdater/ImageUpdater';
 
- const initialState = {
+const initialState = {
     instructions: "",
-     ingredients: "",
-     description: "",
-     recipe:"",
-     recipeCreated: Date.now(),
-     image:"",
- }
+    ingredients: "",
+    description: "",
+    recipe: "",
+    recipeCreated: Date.now(),
+    image: "",
+}
 
 function RecipeUpload({ setIsUploaded, handleFileChange, image, setImage}) {
      const [share, setShare] = useState(initialState)
@@ -52,7 +52,7 @@ function RecipeUpload({ setIsUploaded, handleFileChange, image, setImage}) {
         // });
         
         try {
-            const res = await api.post("/recipes",{instruction:share.instructions, ingredients:share.ingredients, descriptions:share.description, recipe:share.recipe, reciprCreated:share.recipeCreated, image},{headers: {"content-type": "multipart/form-data"}});
+            const res = await api.post("/recipes", { instructions: share.instructions, ingredients: share.ingredients, description: share.description, recipe: share.recipe, recipeCreated: share.recipeCreated, image }, { headers: { "content-type": "multipart/form-data" } });
             console.log(res)
             setIsUploaded(true)
             setImage(null)
@@ -62,10 +62,10 @@ function RecipeUpload({ setIsUploaded, handleFileChange, image, setImage}) {
             toast.error('Error!! Please try again! ');
             setIsUploaded(false)
             //setData({
-              //  ...data,
-             //   isSubmitting: false,
-              //  errorMessage: error ? error.message || error.statusText : null,
-          //  });
+            //  ...data,
+            //   isSubmitting: false,
+            //  errorMessage: error ? error.message || error.statusText : null,
+            //  });
         }
     };
     return (
@@ -78,27 +78,27 @@ function RecipeUpload({ setIsUploaded, handleFileChange, image, setImage}) {
                 <form onSubmit={handleSubmit} id='recipe-upload'>
                     <label htmlFor='recipe-title'>
                         <p>Title your dish: </p>
-                        
-                        <textarea onChange={handleInputChange}name='recipe' id="recipe-title" row="1" required></textarea>
+
+                        <textarea onChange={handleInputChange} name='recipe' id="recipe-title" row="1" required></textarea>
                     </label>
                     <label htmlFor='recipe-desc'>
                         <p>Small description about your dish: </p>
-                        <textarea onChange={handleInputChange}name="description"  id="desc" rows="2" required></textarea>
+                        <textarea onChange={handleInputChange} name="description" id="desc" rows="2" required></textarea>
                     </label>
                     <label htmlFor="recipe-ingredients">
                         <p>Ingredients:</p>
-                        <textarea onChange={handleInputChange}name="ingredients" id="recipe-ingredients" rows="5" required></textarea>
+                        <textarea onChange={handleInputChange} name="ingredients" id="recipe-ingredients" rows="5" required></textarea>
                     </label>
                     <p>Instructions:</p>
                     <label htmlFor="recipe-method">
-                        <textarea onChange={handleInputChange}name="instructions" id="recipe-method" rows="5" required></textarea>
+                        <textarea onChange={handleInputChange} name="instructions" id="recipe-method" rows="5" required></textarea>
                     </label>
                     <Button id="uploadBtn" type="file"> Upload Food Image
                         <input onChange={handleFileChange} name="file" className="fa fa-upload" type="file" />
                     </Button>
                     <button id="submitBtn" type="submit">Add Recipe</button>
                 </form>
-                
+
             </Card>
         </Container >
     )

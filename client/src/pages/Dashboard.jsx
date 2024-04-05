@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // import { RecipePost } from '../component/RecipePost/RecipePost';
-import { Container, Card, Button, Nav } from "react-bootstrap";
- import Header from '../component/Header/Header';
+import { Container, Card, Button, Collapse } from "react-bootstrap";
+import Header from '../component/Header/Header';
 import { Link } from 'react-router-dom';
 import './dashboard.css';
 import { useProvideAuth } from '../hooks/useProvideAuth'
@@ -12,8 +12,8 @@ import api from '../utils/api.util';
 import { MdDinnerDining } from 'react-icons/md';
 
 function Dashboard({ recipe }) {
-    const [recipes, setRecipes] = useState();
     const { filteredRecipes } = useSearch()
+    const [recipes, setRecipes] = useState();
     const {
         state: { user }
     } = useProvideAuth();
@@ -21,11 +21,11 @@ function Dashboard({ recipe }) {
     if (!user) {
         return null;
     }
-     <Header classname="dash" />
-    useEffect(()=>{
-       api.get("/recipes").then((res)=>{setRecipes(res.data)})
+    <Header classname="dash" />
+    useEffect(() => {
+        api.get("/recipes").then((res) => { setRecipes(res.data) })
         console.log()
-    },[])
+    }, [])
     console.log(recipes)
     return (
         <div>
@@ -48,19 +48,17 @@ function Dashboard({ recipe }) {
                </Card> 
                    
                 ))}
-                
-                    
-                
+
+
+
                 {/* <RecipePost recipe={recipe} /> */}
 
             </Container >
-            {/* <i className="fa fa-cloud-upload" style={{ color: "purple", fontSize: "50px" }} ></i> */}
-
         </div>
 
     )
 }
 
-export default Dashboard 
+export default Dashboard
 // as={Link} to="/recipe"
-//this is ^^ a link to submit a recipe from the dashboard.
+//this is ^^ a link to submit a recipe from the dashboard.px

@@ -3,6 +3,7 @@ import authRouter from './auth'
 import userRouter from './auth'
 import recipeRouter from './recipe'
 
+
 const router = express.Router();
 router.get('/', (req, res, next) => {
     res.status(200).send('api endpoint')
@@ -11,9 +12,6 @@ router.get('/', (req, res, next) => {
 router.use('/auth', authRouter)
 router.use('/users', userRouter)
 router.use('/recipes', recipeRouter)
-
-// router.post("/signup", )
-// router.post("/signin", )
 
 
 module.exports = router
