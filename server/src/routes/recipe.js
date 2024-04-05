@@ -26,15 +26,15 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", requireAuth, async (req, res, next) => {
-    const { ingredients, instruction, recipe: title, recipeCreated, descriptions } = req.body;
+    const { ingredients, instructions, recipe: title, recipeCreated, description } = req.body;
     const { user } = req;
-console.log(req.body)
+
 console.log(req.files)
     const recipe = new Recipe({
         ingredients: ingredients,
-        instructions: instruction,
+        instructions: instructions,
         title: title,
-        description: descriptions,
+        description: description,
         recipeCreate: recipeCreated,
         user: user.id,
     });
@@ -56,7 +56,9 @@ console.log(req.files)
       return  res.send("Failed !!"); 
       } //else  res.send("Successfully Uploaded !!"); 
     }); 
-        recipe.image= `/images/${fileName}`
+            recipe.image = `/images/${fileName}`
+            
+            console.log("IN THE IF:",req.body)
         const savedPost = await recipe.save();
 
           // sabe the recipe id to the userr from the model
@@ -70,7 +72,9 @@ console.log(req.files)
     } else{
 
             recipe.image = "dinner.jpg"
+            console.log(recipe)
         const savedPost = await recipe.save();
+        console.log("IN THE ELSE:",req.body)
 
           // sabe the recipe id to the userr from the model
           const currentUser = await User.findById({_id: user.id})
@@ -85,7 +89,7 @@ console.log(req.files)
     }
     catch (error) {
     console.log(error)
-      res.send(500).json({message: "something went wrong..."})
+     // res.send(500).json({message: "something went wrong..."})
     }
 });
 
