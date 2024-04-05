@@ -66,7 +66,7 @@ console.log(req.files)
           currentUser.recipePost = currentUser.recipePost.concat(savedPost._id);
          
 
-        await user.save();
+        await currentUser.save();
 
         return res.json(savedPost.toJSON());
     } else{
@@ -81,7 +81,7 @@ console.log(req.files)
           currentUser.recipePost = currentUser.recipePost.concat(savedPost._id);
          
 
-            await user.save();
+            await currentUser.save();
 
         return res.json(savedPost.toJSON());
 
