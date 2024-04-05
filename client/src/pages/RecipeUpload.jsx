@@ -15,9 +15,9 @@ const initialState = {
     image: "",
 }
 
-function RecipeUpload({ setIsUploaded, handleFileChange, image }) {
-    const [share, setShare] = useState(initialState)
-    const handleInputChange = (event) => {
+function RecipeUpload({ setIsUploaded, handleFileChange, image, setImage}) {
+     const [share, setShare] = useState(initialState)
+     const handleInputChange = (event) => {
         setShare({
             ...share,
             [event.target.name]: event.target.value,
@@ -46,14 +46,16 @@ function RecipeUpload({ setIsUploaded, handleFileChange, image }) {
             theme: "colored",
         });
         //setData({
-        //  ...data,
-        //   isSubmitting: true,
-        //  errorMessage: null,
+          //  ...data,
+         //   isSubmitting: true,
+          //  errorMessage: null,
         // });
+        
         try {
             const res = await api.post("/recipes", { instructions: share.instructions, ingredients: share.ingredients, description: share.description, recipe: share.recipe, recipeCreated: share.recipeCreated, image }, { headers: { "content-type": "multipart/form-data" } });
             console.log(res)
             setIsUploaded(true)
+            setImage(null)
             navigate("/dashboard");
         } catch (error) {
             console.log(error)

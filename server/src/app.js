@@ -6,7 +6,7 @@ import keys from './config/keys'
 import { port } from "./config/keys";
 import router from "./routes";
 import fileUpload from 'express-fileupload';
-
+import path from "path";
 
 //mongoose.connect(keys.database.url)
   //  .then(() => console.log("[Database] Connection established."))
@@ -31,6 +31,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(fileUpload());
 app.use(keys.app.apiEndpoint, router);
-
+app.use(express.static(path.join(__dirname, "..", "public")));
+app.use(express.static(path.join(__dirname, 'public')))
 app.listen(port.web, () => console.log(`[Server] Listening for 
 requests at http://localhost:${port.web}`))
