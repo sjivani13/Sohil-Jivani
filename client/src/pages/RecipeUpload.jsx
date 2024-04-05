@@ -56,7 +56,7 @@ function RecipeUpload({ setIsUploaded, handleFileChange, image, setImage}) {
             console.log(res)
             setIsUploaded(true)
             setImage(null)
-            navigate("/dashboard");
+            navigate("/dashboard")
         } catch (error) {
             console.log(error)
             toast.error('Error!! Please try again! ');
