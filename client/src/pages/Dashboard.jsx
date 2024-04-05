@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 // import { RecipePost } from '../component/RecipePost/RecipePost';
-import { Container, Card, Button, Nav } from "react-bootstrap";
+import { Container, Card, Button, Collapse } from "react-bootstrap";
 import Header from '../component/Header/Header';
 import { Link } from 'react-router-dom';
 import './dashboard.css';
@@ -11,8 +11,8 @@ import useSearch from '../hooks/useSearch';
 import api from '../utils/api.util';
 
 function Dashboard({ recipe }) {
-    const [recipes, setRecipes] = useState();
     const { filteredRecipes } = useSearch()
+    const [recipes, setRecipes] = useState();
     const {
         state: { user }
     } = useProvideAuth();
@@ -33,7 +33,9 @@ function Dashboard({ recipe }) {
                 {recipes?.map((recipe) => (
                     <Card key={recipe._id} style={{ background: "black", width: '18rem', borderRadius: "40%" }}>
                         <Card.Img src="dinner.jpg" style={{ borderRadius: "30%" }} />
-                        <Card.Text><FavButton /> <ReviewButton /> </Card.Text>
+                        <Card.Text><FavButton />
+                            {/* <ReviewButton /> */}
+                        </Card.Text>
                         <Card.Body style={{ background: "black" }}>
                             <Card.Title style={{ color: "white" }}>{recipe.title} </Card.Title>
                             <Card.Text style={{ color: "#b27581" }}>
@@ -42,8 +44,8 @@ function Dashboard({ recipe }) {
                             <Button style={{ background: "#b27581" }}
                                 as={Link} to={`/OpenRecipe/${recipe._id}`}
                             >Open Recipe </Button>
-                        </Card.Body>
 
+                        </Card.Body>
                     </Card>
 
                 ))}
