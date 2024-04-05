@@ -52,7 +52,7 @@ function RecipeUpload({ setIsUploaded, handleFileChange, image, setImage }) {
         // });
 
         try {
-            const res = await api.post("/recipes", { instructions: share, ingredients: share.ingredients, description: share.description, recipe: share.recipe, recipeCreated: share.recipeCreated, image }, { headers: { "content-type": "multipart/form-data" } });
+            const res = await api.post("/recipes", { instructions: share.instructions, ingredients: share.ingredients, description: share.description, recipe: share.recipe, recipeCreated: share.recipeCreated, image }, { headers: { "content-type": "multipart/form-data" } });
             console.log(res)
             setIsUploaded(true)
             setImage(null)
