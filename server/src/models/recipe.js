@@ -23,13 +23,13 @@ const recipeSchema = new mongoose.Schema(
             default: Date.now,
         },
 
-       
+
         user: { type: ObjectId, ref: "User" },
 
         image: {
             type: String,
         },
-        
+
         likes: [
             {
                 type: ObjectId,
@@ -37,7 +37,7 @@ const recipeSchema = new mongoose.Schema(
             }
         ]
     },
-        
+
 )
 
 const Recipe = mongoose.model("Recipe", recipeSchema);
