@@ -46,7 +46,7 @@ function Dashboard({ recipe }) {
                 {recipes?.map((recipe) => (
                     <Card key={recipe._id} style={{ background: "black", width: '18rem', borderRadius: "40%" }}>
                         <Card.Img src={recipe.image ? recipe.image : "dinner.jpg"} style={{ borderRadius: "30%" }} />
-                        <Card.Text><FavButton /> <ReviewButton />
+                        <Card.Text><FavButton /> <ReviewButton />  
                         {user.uid === recipe.user._id && <TrashIcon onClick={()=>handleDelete(recipe._id)} />} </Card.Text>
                         <Card.Body style={{ background: "black" }}>
                             <Card.Title style={{ color: "white" }}>{recipe.title} </Card.Title>
