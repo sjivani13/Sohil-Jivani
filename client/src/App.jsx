@@ -22,18 +22,19 @@ function App() {
   const [isUploaded, setIsUploaded] = useState();
   const [image, setImage] = useState();
 
-  const handleFileChange= (e) => {setImage(e.target.files[0])}
-  
-  console.log(image)
-   useEffect(()=>{
-       api.get("/recipes").then((res)=>{console.log(res)
-     setRecipe(res.data)
-     })
-        console.log()
-    },[isUploaded])
+  const handleFileChange = (e) => { setImage(e.target.files[0]) }
 
-  
-  
+  console.log(image)
+  useEffect(() => {
+    api.get("/recipes").then((res) => {
+      console.log(res)
+      setRecipe(res.data)
+    })
+    console.log()
+  }, [isUploaded])
+
+
+
   return (
     <>
       <ToastContainer />
@@ -47,10 +48,10 @@ function App() {
         <Route exact path="/signup" element={<SignupPage />} />
         <Route exact path="/openRecipe/:id" element={<OpenRecipe />} />
         <Route exact path="/recipe" element={<RecipeUpload setIsUploaded={setIsUploaded} handleFileChange={handleFileChange} image={image} setImage={setImage} />} />
-        <Route exact path="FavUploadPage" element={<FavUploadPage />} />
+        <Route exact path="/favorites" element={<FavUploadPage />} />
       </Routes>
     </>
   )
-  }
+}
 
 export default App

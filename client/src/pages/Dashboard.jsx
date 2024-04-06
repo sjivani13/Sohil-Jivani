@@ -29,13 +29,13 @@ function Dashboard({ recipe }) {
     }, [])
 
 
-     async function handleDelete (  id ){
+    async function handleDelete(id) {
         const res = await api.delete(`/recipes/${id}`)
 
         const updatedRecipes = [...recipes].filter(recipe => recipe._id !== res.data._id)
         console.log(res)
         console.log(updatedRecipes)
-        setRecipes(updatedRecipes) 
+        setRecipes(updatedRecipes)
     }
     console.log(recipes)
     console.log(user)
@@ -47,7 +47,7 @@ function Dashboard({ recipe }) {
                     <Card key={recipe._id} style={{ background: "black", width: '18rem', borderRadius: "40%" }}>
                         <Card.Img src={recipe.image ? recipe.image : "dinner.jpg"} style={{ borderRadius: "30%" }} />
                         <Card.Text><FavButton /> <ReviewButton />
-                        {user.uid === recipe.user._id && <TrashIcon onClick={()=>handleDelete(recipe._id)} />} </Card.Text>
+                            {user.uid === recipe.user._id && <TrashIcon onClick={() => handleDelete(recipe._id)} />} </Card.Text>
                         <Card.Body style={{ background: "black" }}>
                             <Card.Title style={{ color: "white" }}>{recipe.title} </Card.Title>
                             <Card.Text style={{ color: "#b27581" }}>
@@ -59,19 +59,9 @@ function Dashboard({ recipe }) {
                         </Card.Body>
 
                     </Card>
-
                 ))}
-
-
-
-                {/* <RecipePost recipe={recipe} /> */}
-
             </Container >
-        </div>
-
-    )
+        </div>)
 }
 
-export default Dashboard
-// as={Link} to="/recipe"
-//this is ^^ a link to submit a recipe from the dashboard.px
+export default Dashboard;
