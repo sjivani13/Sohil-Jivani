@@ -10,6 +10,7 @@ import ReviewButton from '../component/icons/ReviewButton';
 import useSearch from '../hooks/useSearch';
 import api from '../utils/api.util';
 import { MdDinnerDining } from 'react-icons/md';
+import TrashIcon from '../component/icons/TrashIcon';
 
 function Dashboard({ recipe }) {
     const { filteredRecipes } = useSearch()
@@ -26,7 +27,18 @@ function Dashboard({ recipe }) {
         api.get("/recipes").then((res) => { setRecipes(res.data) })
         console.log()
     }, [])
+
+
+     async function handleDelete (  id ){
+        const res = await api.delete(`/recipes/${id}`)
+
+        const updatedRecipes = [...recipes].filter(recipe => recipe._id !== res.data._id)
+        console.log(res)
+        console.log(updatedRecipes)
+        setRecipes(updatedRecipes) 
+    }
     console.log(recipes)
+    console.log(user)
     return (
         <div>
             <h2>Hello, {user.username}</h2>
@@ -34,7 +46,8 @@ function Dashboard({ recipe }) {
                 {recipes?.map((recipe) => (
                     <Card key={recipe._id} style={{ background: "black", width: '18rem', borderRadius: "40%" }}>
                         <Card.Img src={recipe.image ? recipe.image : "dinner.jpg"} style={{ borderRadius: "30%" }} />
-                        <Card.Text><FavButton /> <ReviewButton /> </Card.Text>
+                        <Card.Text><FavButton /> <ReviewButton />
+                        {user.uid === recipe.user._id && <TrashIcon onClick={()=>handleDelete(recipe._id)} />} </Card.Text>
                         <Card.Body style={{ background: "black" }}>
                             <Card.Title style={{ color: "white" }}>{recipe.title} </Card.Title>
                             <Card.Text style={{ color: "#b27581" }}>
