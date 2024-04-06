@@ -26,14 +26,14 @@ function OpenRecipe() {
                 <Card key={oneRecipe?._id} style={{ color: '#ff7878', backgroundColor: '#3a4c2e', height: '25rem', width: '60rem' }}>
                     <Card.Body>
 
-                        <Card.Img  src={oneRecipe?.image ? oneRecipe?.image : "dinner.jpg"}style={{ borderRadius: "30%" }} />
+                        <Card.Img src={oneRecipe?.image ? oneRecipe?.image : "dinner.jpg"} style={{ borderRadius: "30%" }} />
                         <Card.Title style={{ fontSize: '33px' }}>{oneRecipe?.title}</Card.Title>
 
                         <Card.Subtitle style={{ fontSize: '17px' }} className="mb-2 text-muted">
                             <FavButton />
                             {/* <ReviewButton /> */}
-                            {date.toDateString(oneRecipe)}
-                            {/* {Date(oneRecipe?.recipeCreated)} */}
+                            {/* {date.toDateString(oneRecipe)} */}
+                            {Date(oneRecipe?.recipeCreated)}
                         </Card.Subtitle>
                         <Card.Text style={{ fontSize: '20px' }}>Ingredients:
                             <br />
