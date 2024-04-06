@@ -112,17 +112,22 @@ router.get("/:id", async (req, res) => {
     }
 });
 
-router.delete("/:id", async (req, res, next) => {
-    const { id } = req.params
-
+router.delete("/:id", requireAuth, async (req, res, next) => {
+    const { id } = req.params;
+    const { user } = req;
     try {
-        const deletePost = await Recipe.findByIdAndDelete(id)
-
-        if (!deletePost) {
+        const deleteRecipe = await Recipe.findByIdAndDelete(id)
+        console.log(deleteRecipe)
+       // if(user && user.uid !== deleteRecipe.user){
+         //   console.log("it's getting here")
+         //   return res.status(401)
+            
+       // }
+        if (!deleteRecipe) {
             res.status(404).json({ error: "Error deleting recipe." });
         }
-        res.status(200).json(deletePost)
-    } catch (error) { }
+        res.status(200).json(deleteRecipe)
+    } catch (error) {console.log(error) }
 });
 
 router.all("/like/:recipeId", async (req, res) => {

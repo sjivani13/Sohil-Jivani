@@ -29,9 +29,9 @@ export const ProvideSearch = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState)
 
     // useEffect(() => {
-    //     api.get("/recipes")
-    //         .then((res) => dispatch({ type: "SET_RECIPES", payload: res.data }))
-    // }, [])
+       //  api.get("/recipes")
+         //    .then((res) => dispatch({ type: "SET_RECIPES", payload: res.data }))
+     //}, [])
 
     return <searchContext.Provider value={{ state, dispatch }}>
         {children}
