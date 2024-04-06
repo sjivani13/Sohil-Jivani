@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import { RecipePost } from '../component/RecipePost/RecipePost';
-import { Container, Card, Button, Collapse } from "react-bootstrap";
+import { Container, Card, Button } from "react-bootstrap";
 import Header from '../component/Header/Header';
 import { Link } from 'react-router-dom';
 import './dashboard.css';
@@ -9,7 +8,6 @@ import FavButton from '../component/icons/FavButton';
 import ReviewButton from '../component/icons/ReviewButton';
 import useSearch from '../hooks/useSearch';
 import api from '../utils/api.util';
-import { MdDinnerDining } from 'react-icons/md';
 import TrashIcon from '../component/icons/TrashIcon';
 
 function Dashboard({ recipe }) {
