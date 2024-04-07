@@ -5,7 +5,7 @@ const TrashIcon = (props) => {
     console.log(props)
     return (
 
-        <FaTrashAlt onClick={props.onClick} />
+        <FaTrashAlt style={{ color: "red", marginLeft: "10px" }} onClick={props.onClick} />
     );
 };
 

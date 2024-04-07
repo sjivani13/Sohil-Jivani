@@ -15,7 +15,7 @@ const initialState = {
     image: "",
 }
 
-function RecipeUpload({ setIsUploaded, handleFileChange, image, setImage }) {
+function RecipeUpload({ setIsUploaded, handleFileChange, image, setImage, recipeCreated }) {
     const [share, setShare] = useState(initialState)
     const handleInputChange = (event) => {
         setShare({

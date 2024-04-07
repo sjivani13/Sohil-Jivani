@@ -52,8 +52,16 @@ function Header() {
                                     <img
                                         alt=""
                                         src="/book.png"
-                                        width="35"
-                                        height="35"
+                                        width="40"
+                                        height="40"
+                                    />
+                                </Nav.Link>
+                                <Nav.Link to="favorites" as={Link} type="file">
+                                    <img
+                                        alt=""
+                                        src="/finger.png"
+                                        width="40"
+                                        height="40"
                                     />
                                 </Nav.Link>
                             </>

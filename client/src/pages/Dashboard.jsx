@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import { RecipePost } from '../component/RecipePost/RecipePost';
-import { Container, Card, Button, Collapse } from "react-bootstrap";
+import { Container, Card, Button } from "react-bootstrap";
 import Header from '../component/Header/Header';
 import { Link } from 'react-router-dom';
 import './dashboard.css';
@@ -9,7 +8,6 @@ import FavButton from '../component/icons/FavButton';
 import ReviewButton from '../component/icons/ReviewButton';
 import useSearch from '../hooks/useSearch';
 import api from '../utils/api.util';
-import { MdDinnerDining } from 'react-icons/md';
 import TrashIcon from '../component/icons/TrashIcon';
 
 function Dashboard({ recipe }) {
@@ -29,13 +27,13 @@ function Dashboard({ recipe }) {
     }, [])
 
 
-     async function handleDelete (  id ){
+    async function handleDelete(id) {
         const res = await api.delete(`/recipes/${id}`)
 
         const updatedRecipes = [...recipes].filter(recipe => recipe._id !== res.data._id)
         console.log(res)
         console.log(updatedRecipes)
-        setRecipes(updatedRecipes) 
+        setRecipes(updatedRecipes)
     }
     console.log(recipes)
     console.log(user)
@@ -44,10 +42,10 @@ function Dashboard({ recipe }) {
             <h2>Hello, {user.username}</h2>
             <Container style={{ marginTop: "50px" }}>
                 {recipes?.map((recipe) => (
-                    <Card key={recipe._id} style={{ background: "black", width: '18rem', borderRadius: "40%" }}>
+                    <Card key={recipe._id} style={{ marginTop: "10px", marginBottom: "5px", background: "black", width: '18rem', borderRadius: "40%" }}>
                         <Card.Img src={recipe.image ? recipe.image : "dinner.jpg"} style={{ borderRadius: "30%" }} />
-                        <Card.Text><FavButton /> <ReviewButton />  
-                        {user.uid === recipe.user._id && <TrashIcon onClick={()=>handleDelete(recipe._id)} />} </Card.Text>
+                        <Card.Text><FavButton /> <ReviewButton />
+                            {user.uid === recipe.user._id && <TrashIcon onClick={() => handleDelete(recipe._id)} />} </Card.Text>
                         <Card.Body style={{ background: "black" }}>
                             <Card.Title style={{ color: "white" }}>{recipe.title} </Card.Title>
                             <Card.Text style={{ color: "#b27581" }}>
@@ -59,19 +57,9 @@ function Dashboard({ recipe }) {
                         </Card.Body>
 
                     </Card>
-
                 ))}
-
-
-
-                {/* <RecipePost recipe={recipe} /> */}
-
             </Container >
-        </div>
-
-    )
+        </div>)
 }
 
-export default Dashboard
-// as={Link} to="/recipe"
-//this is ^^ a link to submit a recipe from the dashboard.px
+export default Dashboard;
