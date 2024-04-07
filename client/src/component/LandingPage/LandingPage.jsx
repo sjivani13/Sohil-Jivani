@@ -18,7 +18,7 @@ function LandingPage({ recipe }) {
 
             <Container style={{ marginTop: "50px" }}>
                 {recipes?.map((recipe) => (
-                    <Card key={recipe._id} style={{ background: "black", width: '18rem', borderRadius: "40%" }}>
+                    <Card key={recipe._id} style={{ marginTop: "10px", marginBottom: "5px", background: "black", width: '18rem', borderRadius: "40%" }}>
                         <Card.Img src={recipe.image ? recipe.image : "dinner.jpg"} style={{ borderRadius: "30%" }} />
 
                         <Card.Body style={{ background: "black" }}>

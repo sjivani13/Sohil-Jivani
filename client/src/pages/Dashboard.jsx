@@ -49,7 +49,9 @@ function Dashboard({ recipe }) {
                         <Card.Body style={{ background: "black" }}>
                             <Card.Title style={{ color: "white" }}>{recipe.title} </Card.Title>
                             <Card.Text style={{ color: "#b27581" }}>
-                                {recipe.description}
+                                <li>
+                                    {recipe.description}
+                                </li>
                             </Card.Text>
                             <Button style={{ background: "#b27581" }}
                                 as={Link} to={`/OpenRecipe/${recipe._id}`}

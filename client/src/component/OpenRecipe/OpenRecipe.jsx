@@ -16,7 +16,7 @@ function OpenRecipe({ recipeCreated }) {
     }, [params])
     return (
         <>
-            <Button style={{ background: "#b27581" }} as={Link} to="/dashboard">Go Back</Button>
+            <Button style={{ background: "#b27581" }} as={Link} to="/" >Go Back</Button>
             <Container style={{
                 fontFamily: "Madimi One",
                 fontSize: 'large',
@@ -24,9 +24,10 @@ function OpenRecipe({ recipeCreated }) {
 
             }}>
                 <Card key={oneRecipe?._id} style={{ color: '#ff7878', backgroundColor: '#3a4c2e', height: '25rem', width: '60rem' }}>
-                    <Card.Body>
-
+                    <Card.Header style={{ justifyContent: "space-evenly" }}>
                         <Card.Img src={oneRecipe?.image ? oneRecipe?.image : "dinner.jpg"} style={{ borderRadius: "30%", maxHeight: "700px", maxWidth: "500px" }} />
+                    </Card.Header>
+                    <Card.Body >
                         <Card.Title style={{ fontSize: '33px', marginTop: "10px" }}>{oneRecipe?.title}</Card.Title>
                         <Card.Subtitle style={{ fontSize: '17px' }} className="mb-2 text-muted">
                             <FavButton /> {new Date(oneRecipe?.recipeCreated).toLocaleDateString()}
