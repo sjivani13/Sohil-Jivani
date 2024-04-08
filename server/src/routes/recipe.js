@@ -130,9 +130,12 @@ router.delete("/:id", requireAuth, async (req, res, next) => {
     } catch (error) {console.log(error) }
 });
 
-router.all("/like/:recipeId", async (req, res) => {
+router.all("/like/:recipeId", requireAuth, async (req, res) => {
+    
     const { recipeId } = req.params;
+    console.log(recipeId)
     const { user } = req;
+    console.log(user)
     const recipe = await Recipe.findOne({ _id: recipeId });
 
     if (!recipe) {
@@ -153,6 +156,7 @@ router.all("/like/:recipeId", async (req, res) => {
             res.json(result);
         }
     } catch (err) {
+        console.log(err)
         return res.status(422).json({ error: err });
     }
 });

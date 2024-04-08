@@ -1,8 +1,15 @@
 import * as React from "react";
 import { MdFavorite } from "react-icons/md";
 
-const FavFill = () => {
+const FavFill = (props) => {
     return (
+        // <svg
+        // {...props}
+        // >
+        //     <path
+        //     fill="currentColor"
+        //     />
+        // </svg>
         <MdFavorite />
     )
 
