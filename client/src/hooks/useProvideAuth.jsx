@@ -1,6 +1,6 @@
 import { useReducer, useEffect, useContext, createContext } from "react";
 import { useNavigate } from "react-router-dom";
-import api from "../utils/api.util";
+import api, { setAuthToken } from "../utils/api.util";
 import { useState } from "react";
 
 const initialState = {
@@ -112,6 +112,7 @@ export function useProvideAuth() {
                 type: "LOGIN",
                 payload: savedUser,
             });
+            setAuthToken(savedUser.token)
         } else {
             dispatch({
                 type: "LOGOUT",

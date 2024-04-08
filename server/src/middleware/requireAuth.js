@@ -5,6 +5,7 @@ import { User } from '../models/'
 
 module.exports = async (req, res, next) => {
   const authorization = req.get('authorization')
+  console.log("AUTH:",authorization)
   // authorization === Bearer ewefwegwrherhe
   if (!authorization) {
     return res.status(401).json({ error: 'you must be logged in' })

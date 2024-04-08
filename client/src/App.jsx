@@ -25,13 +25,13 @@ function App() {
   const handleFileChange = (e) => { setImage(e.target.files[0]) }
 
   console.log(image)
-  useEffect(() => {
-    api.get("/recipes").then((res) => {
-      console.log(res)
-      setRecipe(res.data)
-    })
-    console.log()
-  }, [isUploaded])
+  // useEffect(() => {
+  //   api.get("/recipes").then((res) => {
+  //     console.log(res)
+  //     setRecipe(res.data)
+  //   })
+  //   console.log()
+  // }, [isUploaded])
 
 
 
