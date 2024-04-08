@@ -34,7 +34,10 @@ function OpenRecipe({ recipeCreated }) {
                         </Card.Subtitle>
                         <Card.Text style={{ fontSize: '20px' }}>Ingredients:
                             <br />
-                            {oneRecipe?.ingredients}</Card.Text>
+
+                            {oneRecipe?.ingredients}
+
+                        </Card.Text>
                         <Card.Text style={{ fontSize: '20px' }}>Instructions:
                             <br />
                             {oneRecipe?.instructions}</Card.Text>
