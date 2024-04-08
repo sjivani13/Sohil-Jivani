@@ -38,7 +38,7 @@ button.btn.btn-primary {
 
 /* recipe upload page css */
 #uploadCont {
-    /* max-height: 800px; */
+    margin-inline: 36em;
     text-align: center;
 }
 
