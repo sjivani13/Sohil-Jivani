@@ -37,13 +37,13 @@ export const ProvideSearch = ({ children }) => {
         {children}
     </searchContext.Provider>
 }
-
 const useSearch = () => {
     const { state, dispatch } = useContext(searchContext)
-
-    const handleSearchInputChange = (e) =>
+    console.log(state)
+    const handleSearchInputChange = (e) => {
+    console.log(e.target.value)
         dispatch({ type: "INPUT_CHANGE", payload: e.target.value })
-
+}
     const handleSearch = (e) => {
         e.preventDefault();
 

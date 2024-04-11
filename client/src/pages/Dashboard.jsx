@@ -10,15 +10,17 @@ import useSearch from '../hooks/useSearch';
 import api from '../utils/api.util';
 import TrashIcon from '../component/icons/TrashIcon';
 
-function Dashboard({ recipe }) {
-    const { filteredRecipes } = useSearch()
-    const [recipes, setRecipes] = useState();
+
+function Dashboard({ recipe, likes }) {
+
+    const { filteredRecipes, state } = useSearch()
+    const [recipes, setRecipes] = useState([]);
     const {
         state: { user }
     } = useProvideAuth();
-    <Header classname="dash" />
-
-    if (!user) {
+    // <Header classname="dash" />
+console.log(state)
+  if (!user) {
         return null;
     }
     useEffect(() => {
