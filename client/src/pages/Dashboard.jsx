@@ -13,13 +13,13 @@ import TrashIcon from '../component/icons/TrashIcon';
 
 function Dashboard({ recipe, likes }) {
 
-    const { filteredRecipes } = useSearch()
+    const { filteredRecipes, state } = useSearch()
     const [recipes, setRecipes] = useState([]);
     const {
         state: { user }
     } = useProvideAuth();
     // <Header classname="dash" />
-
+console.log(state)
     if (!user) {
         return null;
     }

@@ -3,12 +3,12 @@ import { Nav, Navbar, Container } from "react-bootstrap";
 import "./Header.css";
 import { Link } from 'react-router-dom'
 import FuzzySearch from "../FuzzySearch/FuzzySearch";
-// import useSearch from "../../hooks/useSearch";
+import useSearch from "../../hooks/useSearch";
 import { useProvideAuth } from "../../hooks/useProvideAuth";
 
 function Header() {
     const { state: { isAuthenticated }, signout } = useProvideAuth();
-
+    const  { handleSearchInputChange, handleSearch } = useSearch();
     // const [filteredData, setFilteredData] = useState(null);
     // const [searchInput, setSearchInput] = useState("");
     // const { searchData, handleSearchInputChange } = useSearch()
@@ -37,8 +37,10 @@ function Header() {
                     />{' '}
                     Trio Digital Dishes</Navbar.Brand>
                 <Navbar id="basic-navbar-nav">
-                    <Nav className="center">
-                        <FuzzySearch />
+                    <Nav className="center"> {isAuthenticated && <form onSubmit={handleSearch}>
+                        <input type="text" onChange={handleSearchInputChange}/>
+                        <button>Submit</button>
+                        </form>}
                     </Nav>
                     <Nav>
 
