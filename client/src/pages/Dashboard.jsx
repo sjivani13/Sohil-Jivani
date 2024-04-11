@@ -5,37 +5,28 @@ import { Link } from 'react-router-dom';
 import './dashboard.css';
 import { useProvideAuth } from '../hooks/useProvideAuth'
 import FavButton from '../component/icons/FavButton';
-import FavFill from '../component/icons/FavFill';
 // import ReviewButton from '../component/icons/ReviewButton';
 import useSearch from '../hooks/useSearch';
 import api from '../utils/api.util';
 import TrashIcon from '../component/icons/TrashIcon';
 
-function Dashboard({ recipe, likes }) {
-
+function Dashboard({ recipe }) {
     const { filteredRecipes } = useSearch()
-    const [recipes, setRecipes] = useState([]);
+    const [recipes, setRecipes] = useState();
     const {
         state: { user }
     } = useProvideAuth();
-    // <Header classname="dash" />
+    <Header classname="dash" />
 
     if (!user) {
         return null;
     }
-    // useEffect(() => {
-    //     api.get("/recipes").then((res) => { setRecipes(res.data) })
-    //     console.log()
-    // }, [])
-    // const [likedState, setLiked] = useState(likes.includes(recipes.id));
-    // const [likesState, setLikes] = useState(likes.length);
+    useEffect(() => {
+        api.get("/recipes").then((res) => { setRecipes(res.data) })
+        console.log()
+    }, [])
 
-    const handleToggleLike = async (recipeId) => {
-        await api.post(`/recipes/like/${recipeId}`)
 
-        
-
-    }
     async function handleDelete(id) {
         const res = await api.delete(`/recipes/${id}`)
 
@@ -44,18 +35,16 @@ function Dashboard({ recipe, likes }) {
         console.log(updatedRecipes)
         setRecipes(updatedRecipes)
     }
-    // console.log(recipes)
-    // console.log(user)
+    console.log(recipes)
+    console.log(user)
     return (
         <div>
             <h2>Hello, {user.username}</h2>
             <Container style={{ marginTop: "50px" }}>
-                {filteredRecipes?.map((recipe) => (
+                {recipes?.map((recipe) => (
                     <Card key={recipe._id} style={{ marginTop: "10px", marginBottom: "5px", background: "black", width: '18rem', borderRadius: "40%" }}>
                         <Card.Img src={recipe.image ? recipe.image : "dinner.jpg"} style={{ borderRadius: "30%" }} />
-                        <Card.Text> <Button onClick={() => handleToggleLike(recipe._id)} > {recipe.likes.includes(user.uid) ? <FavFill />: <FavButton />}
-                            {console.log("User likes", recipe.title, "?", recipe.likes.includes(user.uid))}
-                        </Button>
+                        <Card.Text><FavButton />
                             {/* <ReviewButton /> */}
                             {user.uid === recipe.user._id && <TrashIcon onClick={() => handleDelete(recipe._id)} />} </Card.Text>
                         <Card.Body style={{ background: "black" }}>
