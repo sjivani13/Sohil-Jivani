@@ -7,7 +7,7 @@ import api from "../../utils/api.util";
 import { timeSince } from "../../utils/timeSince";
 
 function OpenRecipe({ recipeCreated }) {
-    const [date, setDate] = useState(new Date())
+    // const [date, setDate] = useState(new Date())
     const [oneRecipe, setOneRecipe] = useState()
     const params = useParams()
     useEffect(() => {
