@@ -7,11 +7,11 @@ import api from '../../utils/api.util';
 function LandingPage({ recipe }) {
     const [recipes, setRecipes] = useState();
 
-    useEffect(() => {
-        api.get("/recipes").then((res) => { setRecipes(res.data) })
-        console.log()
-    }, [])
-    console.log(recipes)
+    // useEffect(() => {
+    //     api.get("/recipes").then((res) => { setRecipes(res.data) })
+    //     console.log()
+    // }, [])
+    // console.log(recipes)
 
     return (
         <div>

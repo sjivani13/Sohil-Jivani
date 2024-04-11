@@ -8,7 +8,7 @@ import { useProvideAuth } from "../../hooks/useProvideAuth";
 
 function Header() {
     const { state: { isAuthenticated }, signout } = useProvideAuth();
-    const  { handleSearchInputChange, handleSearch } = useSearch();
+    const { handleSearchInputChange, handleSearch } = useSearch();
     // const [filteredData, setFilteredData] = useState(null);
     // const [searchInput, setSearchInput] = useState("");
     // const { searchData, handleSearchInputChange } = useSearch()
@@ -38,9 +38,9 @@ function Header() {
                     Trio Digital Dishes</Navbar.Brand>
                 <Navbar id="basic-navbar-nav">
                     <Nav className="center"> {isAuthenticated && <form onSubmit={handleSearch}>
-                        <input type="text" onChange={handleSearchInputChange}/>
-                        <button>Submit</button>
-                        </form>}
+                        <input placeholder="hit enter to search.." type="text" onChange={handleSearchInputChange} />
+                        {/* <button>Submit</button> */}
+                    </form>}
                     </Nav>
                     <Nav>
 

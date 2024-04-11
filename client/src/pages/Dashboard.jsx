@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Card, Button } from "react-bootstrap";
-import Header from '../component/Header/Header';
+// import Header from '../component/Header/Header';
 import { Link } from 'react-router-dom';
 import './dashboard.css';
 import { useProvideAuth } from '../hooks/useProvideAuth'
@@ -11,6 +11,8 @@ import api from '../utils/api.util';
 import TrashIcon from '../component/icons/TrashIcon';
 
 
+
+
 function Dashboard({ recipe, likes }) {
 
     const { filteredRecipes, state } = useSearch()
@@ -19,16 +21,11 @@ function Dashboard({ recipe, likes }) {
         state: { user }
     } = useProvideAuth();
     // <Header classname="dash" />
-console.log(state)
-  if (!user) {
+    if (!user) {
         return null;
     }
-    useEffect(() => {
-        api.get("/recipes").then((res) => { setRecipes(res.data) })
-        console.log()
-    }, [])
 
-
+    console.log(state)
     async function handleDelete(id) {
         const res = await api.delete(`/recipes/${id}`)
 
@@ -43,7 +40,7 @@ console.log(state)
         <div>
             <h2>Hello, {user.username}</h2>
             <Container style={{ marginTop: "50px" }}>
-                {recipes?.map((recipe) => (
+                {filteredRecipes?.map((recipe) => (
                     <Card key={recipe._id} style={{ marginTop: "10px", marginBottom: "5px", background: "black", width: '18rem', borderRadius: "40%" }}>
                         <Card.Img src={recipe.image ? recipe.image : "dinner.jpg"} style={{ borderRadius: "30%" }} />
                         <Card.Text><FavButton />
