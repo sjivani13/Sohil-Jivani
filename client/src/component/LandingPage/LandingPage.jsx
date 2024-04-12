@@ -9,7 +9,7 @@ function LandingPage({ recipe }) {
 
     useEffect(() => {
         api.get("/recipes").then((res) => {
-            console.log(res)
+            console.log("RESPONSE FROM LANDING PAGE:", res)
             setRecipes(res.data)
         })
     }, [])
