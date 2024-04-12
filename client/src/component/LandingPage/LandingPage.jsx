@@ -8,8 +8,10 @@ function LandingPage({ recipe }) {
     const [recipes, setRecipes] = useState();
 
     useEffect(() => {
-        api.get("/recipes").then((res) => { setRecipes(res.data) })
-        console.log()
+        api.get("/recipes").then((res) => {
+            console.log(res)
+            setRecipes(res.data)
+        })
     }, [])
     // console.log(recipes)
 
