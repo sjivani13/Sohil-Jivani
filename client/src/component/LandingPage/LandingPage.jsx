@@ -20,17 +20,18 @@ function LandingPage({ recipe }) {
 
             <Container style={{ marginTop: "50px" }}>
                 {recipes?.map((recipe) => (
-                    <Card key={recipe._id} style={{ marginTop: "10px", marginBottom: "5px", background: "black", width: '18rem', borderRadius: "40%" }}>
-                        <Card.Img src={recipe.image ? recipe.image : "dinner.jpg"} style={{ borderRadius: "30%" }} />
+                    <Card key={recipe._id} style={{ marginTop: "10px", marginBottom: "5px", 
+                    background: "white", width: '15rem', borderRadius: "10%" }}>
+                        <Card.Img src={recipe.image ? recipe.image : "dinner.jpg"} style={{ borderRadius: "5%", maxWidth: 300, height:200 }} />
 
-                        <Card.Body style={{ background: "black" }}>
-                            <Card.Title style={{ color: "white" }}>{recipe.title} </Card.Title>
-                            <Card.Text style={{ color: "#b27581" }}>
+                        <Card.Body style={{ background: "lightgray", marginTop: "10px" }}>
+                            <Card.Title style={{  color: "black" }}>{recipe.title} </Card.Title>
+                            <Card.Text style={{ color: "black" }}>
                                 {recipe.description}
                             </Card.Text>
-                            <Button style={{ background: "#b27581" }}
+                            <Button style={{ background: "white", color: "black", fontWeight:"bold" }}
                                 as={Link} to={`/OpenRecipe/${recipe._id}`}
-                            >Open Recipe </Button>
+                            >Complete Recipe </Button>
                         </Card.Body>
 
                     </Card>

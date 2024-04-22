@@ -11,7 +11,7 @@ const FavButton = (props) => {
         //     <path fill="currentColor" 
         //     />
         // </svg>
-       <MdOutlineFavoriteBorder style={{ color: "pink", width: "30" }} />
+       <MdOutlineFavoriteBorder style={{ color: "red", width: "30" }} />
 
     );
 };

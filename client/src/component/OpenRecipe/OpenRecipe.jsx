@@ -18,21 +18,22 @@ function OpenRecipe({ recipeCreated }) {
         <>
             <Button style={{ background: "#b27581" }} as={Link} to="/" >Go Back</Button>
             <Container style={{
+                opacity:".8",
                 fontFamily: "Madimi One",
                 fontSize: 'large',
                 textAlign: 'center'
 
             }}>
-                <Card key={oneRecipe?._id} style={{ color: '#ff7878', backgroundColor: '#3a4c2e', height: '25rem', width: '60rem' }}>
-                    <Card.Header style={{ justifyContent: "space-evenly" }}>
-                        <Card.Img src={oneRecipe?.image ? oneRecipe?.image : "dinner.jpg"} style={{ borderRadius: "30%", maxHeight: "700px", maxWidth: "500px" }} />
+                <Card key={oneRecipe?._id} style={{ color: 'black', backgroundColor: '#a2af99', marginBottom:"5px",  height: '50rem', width: '60rem' }}>
+                    <Card.Header style={{  justifyContent: "space-evenly" }}>
+                        <Card.Img src={oneRecipe?.image ? oneRecipe?.image : "dinner.jpg"} style={{ borderRadius: "30%", maxHeight: "300px", maxWidth: "300px" }} />
                     </Card.Header>
-                    <Card.Body >
-                        <Card.Title style={{ fontSize: '33px', marginTop: "10px" }}>{oneRecipe?.title}</Card.Title>
+                    <Card.Body style={{background:"lightgray",}} >
+                        <Card.Title style={{ fontStyle: "bold", fontSize: '33px', marginTop: "10px",}}>{oneRecipe?.title}</Card.Title>
                         <Card.Subtitle style={{ fontSize: '17px' }} className="mb-2 text-muted">
                             <FavButton /> {new Date(oneRecipe?.recipeCreated).toLocaleDateString()}
                         </Card.Subtitle>
-                        <Card.Text style={{ fontSize: '20px' }}>Ingredients:
+                        <Card.Text style={{  fontSize: '20px' }}>Ingredients:
                             <br />
 
                             {oneRecipe?.ingredients}

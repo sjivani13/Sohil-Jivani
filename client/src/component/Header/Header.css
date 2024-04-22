@@ -1,9 +1,9 @@
  .header {
-     background-color: #3f4e34;
+     background-color: #e4e9df;
  }
 
  #title {
-     color: #b27581;
+     color: #3a2b2e;
      font-size: 40px;
      font-family: "Rampart One", system-ui;
      font-weight: 400;
@@ -17,12 +17,12 @@
  #login,
  #home,
  #logout {
-     color: #b27581;
+     color: #000000;
      font-size: 20px;
      font-family: "Rampart One", system-ui;
  }
 
  #btn {
-     color: burlywood;
+     color: black;
      background-color: #4c6c3c;
  }

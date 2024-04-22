@@ -5,7 +5,7 @@ button {
 
 div.container {
     display: grid;
-    grid-template-columns: 310px 310px 310px 310px;
+    grid-template-columns: 330px 330px 330px 330px;
     /* grid-template-rows: */
 }
 

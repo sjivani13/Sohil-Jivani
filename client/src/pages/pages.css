@@ -1,5 +1,5 @@
 h2 {
-    color: #b27581;
+    color: blck;
     font-size: 40px;
     font-family: "Rampart One", system-ui;
     text-align: center;
@@ -11,13 +11,17 @@ div.col {
 }
 
 #uploadBtn {
-    color: #d77488;
-    background-color: #3a4c2e;
+    color: black;
+    background-color: #a2af99;
     font-weight: 500;
 }
 
+
 form {
-    background-color: #496039b7;
+    
+    background-color:  #b4c2a9b7;
+    
+    
 }
 
 form.was-validated {
@@ -25,7 +29,7 @@ form.was-validated {
 }
 
 button.btn.btn-primary {
-    background-color: #f47a92c6;
+    background-color: black;
 }
 
 .toast {
@@ -51,12 +55,13 @@ button.btn.btn-primary {
     columns: 2;
     height: 500px;
     flex: content;
+    
 }
 
 #yourRecipe {
     margin-top: 3rem;
-    color: #ff7878;
-    font-family: "Madimi One";
+    color: black;
+    font-family:'Courier New', Courier, monospace;
     font-size: large;
     background-color: #3a4c2e;
     width: fit-content;
@@ -64,7 +69,7 @@ button.btn.btn-primary {
 }
 
 #share {
-    color: rgb(255, 120, 120);
+    color: black(255, 120, 120);
 
 }
 
@@ -73,16 +78,20 @@ button.btn.btn-primary {
 #recipe-method,
 #recipe-title {
     color: #3a4c2e;
-    font-family: "Madimi One";
-    border-radius: 15%;
+    font-family:'Courier New', Courier, monospace;
+    border-radius: 0%;
 
 }
 
 #submitBtn {
-    background-color: #f47a92c6;
+    background-color: #3a4c2e;
     color: whitesmoke;
-    font-family: "Madimi One";
+    font-family:'Courier New', Courier, monospace;
     max-width: fit-content;
     align-self: center;
     cursor: pointer;
+}
+
+#uploadCont {
+    opacity: 0.9;
 }

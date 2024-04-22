@@ -14,6 +14,7 @@ import OpenRecipe from "./component/OpenRecipe/OpenRecipe"
 import RecipeUpload from "./pages/RecipeUpload"
 import FavUploadPage from "./pages/FavUploadPage"
 <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+import './App.css';
 
 
 
@@ -24,7 +25,7 @@ function App() {
 
   const handleFileChange = (e) => { setImage(e.target.files[0]) }
 
-  console.log(image)
+  // console.log(image)
   // useEffect(() => {
   //   api.get("/recipes").then((res) => {
   //     console.log(res)
@@ -36,7 +37,7 @@ function App() {
 
 
   return (
-    <>
+    <div className="background">
       <ToastContainer />
       <Header />
       <Routes>
@@ -48,9 +49,9 @@ function App() {
         <Route exact path="/signup" element={<SignupPage />} />
         <Route exact path="/openRecipe/:id" element={<OpenRecipe />} />
         <Route exact path="/recipe" element={<RecipeUpload setIsUploaded={setIsUploaded} handleFileChange={handleFileChange} image={image} setImage={setImage} />} />
-        <Route exact path="/favorites" element={<FavUploadPage />} />
+        <Route exact path="/favorites" element={<FavUploadPage recipe={recipe} />} />
       </Routes>
-    </>
+    </div>
   )
 }
 

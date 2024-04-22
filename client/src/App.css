@@ -1,7 +1,15 @@
 #root {
-  max-width: 1280px;
+ /* max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  background-color: #292a2c;
+  background-color: #292a2c;*/
+}
+
+.background {
+  background-image: url("Assembled-Mexican-Rice-Bowl-large-1024x684.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-size: cover;
+    background-position: center;
 }

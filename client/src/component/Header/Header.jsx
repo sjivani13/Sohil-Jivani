@@ -53,7 +53,7 @@ function Header() {
                                 <Nav.Link to="recipe" as={Link} type="file">
                                     <img
                                         alt=""
-                                        src="/book.png"
+                                        src="/images.png"
                                         width="40"
                                         height="40"
                                     />
@@ -61,7 +61,7 @@ function Header() {
                                 <Nav.Link to="favorites" as={Link} type="file">
                                     <img
                                         alt=""
-                                        src="/finger.png"
+                                        src="/Recipe-icon.png"
                                         width="40"
                                         height="40"
                                     />
